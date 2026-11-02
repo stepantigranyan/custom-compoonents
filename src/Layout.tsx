@@ -9,9 +9,7 @@ const Layout = () => {
                         <NavLink
                             to="/button"
                             className={({ isActive }) =>
-                                isActive
-                                    ? 'text-blue-600 font-bold border-b-2 border-blue-600'
-                                    : 'text-gray-600'
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
                             }
                         >
                             Buttons
@@ -19,9 +17,7 @@ const Layout = () => {
                         <NavLink
                             to="/spinner"
                             className={({ isActive }) =>
-                                isActive
-                                    ? 'text-blue-600 font-bold border-b-2 border-blue-600'
-                                    : 'text-gray-600'
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
                             }
                         >
                             Spinners
@@ -29,9 +25,7 @@ const Layout = () => {
                         <NavLink
                             to="/collapse"
                             className={({ isActive }) =>
-                                isActive
-                                    ? 'text-blue-600 font-bold border-b-2 border-blue-600'
-                                    : 'text-gray-600'
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
                             }
                         >
                             Collapse

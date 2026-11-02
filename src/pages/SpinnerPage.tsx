@@ -13,15 +13,11 @@ const SpinnerPage = () => {
                     <div className="flex flex-col gap-y-5">
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">
-                                We support three sizes of spinners: small,
-                                medium and large. If a large or small button is
-                                desired, set the size property to either large
-                                or small respectively. Omit the size property
-                                for a spinner.
+                                We support three sizes of spinners: small, medium and large. If a large or small button
+                                is desired, set the size property to either large or small respectively. Omit the size
+                                property for a spinner.
                                 <br />
-                                <span className="text-sm text-gray-500">
-                                    (sm, md, lg)
-                                </span>
+                                <span className="text-sm text-gray-500">(sm, md, lg)</span>
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
                                 <Spinner size="sm" />
@@ -31,12 +27,9 @@ const SpinnerPage = () => {
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">
-                                You can change spinner variant using variant
-                                attribute.
+                                You can change spinner variant using variant attribute.
                                 <br />
-                                <span className="text-sm text-gray-500">
-                                    (segment, dashed, arc)
-                                </span>
+                                <span className="text-sm text-gray-500">(segment, dashed, arc)</span>
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
                                 <Spinner variant="segment" />
@@ -48,12 +41,9 @@ const SpinnerPage = () => {
                     <div className="flex flex-col gap-y-5">
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">
-                                You can set the rotating speed for spinner using
-                                speed attribute.
+                                You can set the rotating speed for spinner using speed attribute.
                                 <br />
-                                <span className="text-sm text-gray-500">
-                                    (slow, medium, fast)
-                                </span>
+                                <span className="text-sm text-gray-500">(slow, medium, fast)</span>
                             </p>
                             <div className="flex flex-col gap-y-4">
                                 <div className="flex items-center flex-wrap gap-3">
@@ -66,13 +56,11 @@ const SpinnerPage = () => {
                         <div className="flex flex-col gap-y-5">
                             <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                                 <p className="text-lg">
-                                    You can set the color for spinner using
-                                    color attribute. By default it takes
+                                    You can set the color for spinner using color attribute. By default it takes
                                     parent's font color.
                                     <br />
                                     <span className="text-sm text-gray-500">
-                                        (black, gray, blue, yellow, red, green,
-                                        pink, purple)
+                                        (black, gray, blue, yellow, red, green, pink, purple)
                                     </span>
                                 </p>
                                 <div className="flex flex-col gap-y-4">

@@ -1,11 +1,25 @@
 import { type HTMLAttributes, type FC } from 'react';
 import { cn } from '../utils/cn';
 
+//============================================
+// 1. Types and Interfaces
+//============================================
+
 type spin_size = 'sm' | 'md' | 'lg';
 type spin_speed = 'slow' | 'medium' | 'fast';
 type spin_variant = 'segment' | 'arc' | 'dashed';
-type spin_color =
-    'black' | 'gray' | 'red' | 'green' | 'blue' | 'yellow' | 'pink' | 'purple';
+type spin_color = 'black' | 'gray' | 'red' | 'green' | 'blue' | 'yellow' | 'pink' | 'purple';
+
+interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
+    size?: spin_size;
+    variant?: spin_variant;
+    speed?: spin_speed;
+    color?: spin_color;
+}
+
+//============================================
+// 2. Style Mappings
+//============================================
 
 const spinSize: Record<spin_size, string> = {
     sm: 'size-6 border',
@@ -38,12 +52,9 @@ const spinColor: Record<spin_color, string> = {
 
 const spinnerDefaultStyles = 'rounded-full transition-all animate-spin';
 
-interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
-    size?: spin_size;
-    variant?: spin_variant;
-    speed?: spin_speed;
-    color?: spin_color;
-}
+//============================================
+// 3. Component
+//============================================
 
 const Spinner: FC<SpinnerProps> = ({
     size = 'md',
@@ -60,14 +71,7 @@ const Spinner: FC<SpinnerProps> = ({
 
     return (
         <div
-            className={cn(
-                spinnerColor,
-                spinnerDefaultStyles,
-                spinnerVariant,
-                spinnerSpeed,
-                spinnerSize,
-                className
-            )}
+            className={cn(spinnerColor, spinnerDefaultStyles, spinnerVariant, spinnerSpeed, spinnerSize, className)}
             {...props}
         />
     );

@@ -1,12 +1,28 @@
 import { type ButtonHTMLAttributes, type FC, type JSX } from 'react';
 import { cn } from '../utils/cn';
 
+//============================================
+// 1. Types and Interfaces
+//============================================
+
 type btn_size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type btn_rounded = 'sm' | 'md' | 'lg' | 'full';
 type btn_variant = 'solid' | 'outline' | 'ghost' | 'filled';
-type btn_color =
-    'black' | 'gray' | 'red' | 'green' | 'blue' | 'yellow' | 'pink' | 'purple';
+type btn_color = 'black' | 'gray' | 'red' | 'green' | 'blue' | 'yellow' | 'pink' | 'purple';
 type btn_icon_placement = 'right' | 'left';
+
+interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: btn_variant;
+    color?: btn_color;
+    size?: btn_size;
+    rounded?: btn_rounded;
+    icon?: JSX.Element;
+    iconPlacement?: btn_icon_placement;
+}
+
+//============================================
+// 2. Style Mappings
+//============================================
 
 const btnRounded: Record<btn_rounded, string> = {
     sm: 'rounded-sm',
@@ -66,17 +82,12 @@ const btnVariant: Record<btn_variant, Record<btn_color, string>> = {
     },
 };
 
-interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    variant?: btn_variant;
-    color?: btn_color;
-    size?: btn_size;
-    rounded?: btn_rounded;
-    icon?: JSX.Element;
-    iconPlacement?: btn_icon_placement;
-}
-
 const buttonDefaultStyles =
     'cursor-pointer inline-flex shrink-0 items-center justify-center gap-x-2 shadow-md transition-all duration-200 active:translate-y-0.5 disabled:cursor-not-allowed disabled:pointer-events-none disabled:text-gray-400 disabled:bg-gray-100 disabled:border-gray-400';
+
+//============================================
+// 3. Component
+//============================================
 
 const Button: FC<BtnProps> = ({
     variant = 'solid',
@@ -94,16 +105,7 @@ const Button: FC<BtnProps> = ({
     const buttonSize = btnSize[size];
 
     return (
-        <button
-            className={cn(
-                buttonDefaultStyles,
-                buttonVariant,
-                buttonRounded,
-                buttonSize,
-                className
-            )}
-            {...props}
-        >
+        <button className={cn(buttonDefaultStyles, buttonVariant, buttonRounded, buttonSize, className)} {...props}>
             {iconPlacement === 'left' && icon}
             {children}
             {iconPlacement === 'right' && icon}

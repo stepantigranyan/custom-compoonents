@@ -26,6 +26,4 @@ const tabDirection: Record<tab_direction, string> = {
     vertical: 'flex flex-col',
 };
 
-const tabPosition: Record<tab_position, string> = {
-
-}
+const tabPosition: Record<tab_position, string> = {};
