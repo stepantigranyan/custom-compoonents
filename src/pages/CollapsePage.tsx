@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import { Collapse, CollapseItem, CollapseItemHeader, CollapseItemBody } from '../ui/collapse.tsx';
+import { Collapse, CollapseItem, CollapseItemHeader, CollapseItemBody } from '@/ui/collapse/collapse.tsx';
 
 const CollapsePage = () => {
     return (

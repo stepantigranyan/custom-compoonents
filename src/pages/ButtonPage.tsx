@@ -1,5 +1,5 @@
 import { Search, X } from 'lucide-react';
-import { Button } from '../ui/button.tsx';
+import { Button } from '@/ui/button/button.tsx';
 
 const ButtonPage = () => {
     return (

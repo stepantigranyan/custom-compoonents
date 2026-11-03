@@ -1,5 +1,5 @@
 import { type ButtonHTMLAttributes, type FC, type JSX } from 'react';
-import { cn } from '../utils/cn';
+import { cn } from '@/utils/cn';
 
 //============================================
 // 1. Types and Interfaces

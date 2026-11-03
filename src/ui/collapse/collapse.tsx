@@ -11,13 +11,12 @@ import {
 } from 'react';
 import { ChevronRight } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
-import { cn } from '../utils/cn';
+import { cn } from '@/utils/cn';
 
 //============================================
 // 1. Types and Interfaces
 //============================================
 
-type collapse_variant = 'spoiler' | 'accordion';
 type collapse_size = 'sm' | 'md' | 'lg';
 type collapse_item_data = {
     isChecked: boolean;
@@ -25,7 +24,6 @@ type collapse_item_data = {
 };
 
 interface CollapseProps extends HTMLAttributes<HTMLDivElement> {
-    variant?: collapse_variant;
     size?: collapse_size;
     icon?: JSX.Element;
 }
@@ -66,7 +64,6 @@ const CollapseItemContext = createContext<collapse_item_data | null>(null);
 //============================================
 
 const Collapse: FC<CollapseProps> = ({
-    variant = 'spoiler',
     size = 'md',
     icon = <ChevronRight size={20} />,
     className,
@@ -74,7 +71,7 @@ const Collapse: FC<CollapseProps> = ({
     ...props
 }) => {
     return (
-        <CollapseContext.Provider value={{ variant, size, icon }}>
+        <CollapseContext.Provider value={{ size, icon }}>
             <div className={cn(collapseDefaultStyles, className)} {...props}>
                 {children}
             </div>
@@ -98,7 +95,7 @@ const CollapseItem: FC<CollapseItemProps> = ({ children, open = false }) => {
 
 const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ className, children, ...props }) => {
     const id = useRef<string>(uuidv4());
-    const { variant, size, icon } = useContext(CollapseContext);
+    const { size, icon } = useContext(CollapseContext);
     const { isChecked, changeChecked } = useContext(CollapseItemContext);
 
     const sizeStyle = collapseSize[size];
@@ -125,7 +122,7 @@ const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ className, children, 
 };
 
 const CollapseItemBody: FC<CollapseItemBodyProps> = ({ className, children, ...props }) => {
-    const { variant, size } = useContext(CollapseContext);
+    const { size } = useContext(CollapseContext);
     const { isChecked } = useContext(CollapseItemContext);
 
     const sizeStyle = collapseSize[size];
@@ -133,8 +130,8 @@ const CollapseItemBody: FC<CollapseItemBodyProps> = ({ className, children, ...p
 
     return (
         <div className={cn(collapseItemBodyDefaultStyles, showStyle, className)} {...props}>
-            <div className='overflow-hidden'>
-                <div className={cn(sizeStyle)}>{children}</div>
+            <div className="overflow-hidden">
+                <div className={cn(sizeStyle, 'break-all')}>{children}</div>
             </div>
         </div>
     );

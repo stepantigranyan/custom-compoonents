@@ -5,3 +5,69 @@
         @apply text-gray-800;
     }
 }
+
+@keyframes addNotification {
+    0% {
+        left: -10px;
+        opacity: 0.5;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes removeNotification {
+    0% {
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        left: -30px;
+        opacity: 0;
+    }
+}
+
+@keyframes openTopDrawer {
+    0% {
+        top: -100% !important;
+        opacity: 0.5;
+    }
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes openLeftDrawer {
+    0% {
+        left: -100% !important;
+        opacity: 0.5;
+    }
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes openRightDrawer {
+    0% {
+        right: -100% !important;
+        opacity: 0.5;
+    }
+    100% {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes openBottomDrawer {
+    0% {
+        bottom: -100% !important;
+        opacity: 0.5;
+    }
+    100% {
+        bottom: 0;
+        opacity: 1;
+    }
+}

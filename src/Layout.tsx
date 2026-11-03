@@ -30,6 +30,30 @@ const Layout = () => {
                         >
                             Collapse
                         </NavLink>
+                        <NavLink
+                            to="/empty"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Empty
+                        </NavLink>
+                        <NavLink
+                            to="/notification"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Notification
+                        </NavLink>
+                        <NavLink
+                            to="/drawer"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Drawer
+                        </NavLink>
                         {/*<NavLink*/}
                         {/*    to="/dropdown"*/}
                         {/*    className={({ isActive }) =>*/}
