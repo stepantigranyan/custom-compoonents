@@ -1,5 +1,5 @@
 import { Search, X } from 'lucide-react';
-import { Drawer } from "@/ui/drawer/drawer.tsx";
+import { Drawer } from '@/ui/drawer/drawer.tsx';
 import { Button } from '@/ui/button/button.tsx';
 
 const DrawerPage = () => {
@@ -35,7 +35,7 @@ const DrawerPage = () => {
                                 property for a button with the default medium size.
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer>
+                                <Drawer trigger={<Button>Open</Button>}>
                                     <h1>Hello</h1>
                                 </Drawer>
                             </div>

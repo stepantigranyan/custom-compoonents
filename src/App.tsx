@@ -5,7 +5,7 @@ import ButtonPage from './pages/ButtonPage.tsx';
 import SpinnerPage from './pages/SpinnerPage.tsx';
 import CollapsePage from './pages/CollapsePage.tsx';
 import EmptyPage from './pages/EmptyPage';
-import DrawerPage from "@/pages/DrawerPage.tsx";
+import DrawerPage from '@/pages/DrawerPage.tsx';
 // import NotificationPage from './pages/NotificationPage';
 // import DropdownPage from './pages/DropdownPage.tsx';
 

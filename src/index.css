@@ -29,45 +29,73 @@
 }
 
 @keyframes openTopDrawer {
-    0% {
-        top: -100% !important;
-        opacity: 0.5;
+    from {
+        transform: translateY(-100%);
     }
-    100% {
-        top: 0;
-        opacity: 1;
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeTopDrawer {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
     }
 }
 
 @keyframes openLeftDrawer {
-    0% {
-        left: -100% !important;
-        opacity: 0.5;
+    from {
+        transform: translateX(-100%);
     }
-    100% {
-        left: 0;
-        opacity: 1;
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeLeftDrawer {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
     }
 }
 
 @keyframes openRightDrawer {
-    0% {
-        right: -100% !important;
-        opacity: 0.5;
+    from {
+        transform: translateX(100%);
     }
-    100% {
-        right: 0;
-        opacity: 1;
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeRightDrawer {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
     }
 }
 
 @keyframes openBottomDrawer {
-    0% {
-        bottom: -100% !important;
-        opacity: 0.5;
+    from {
+        transform: translateY(100%);
     }
-    100% {
-        bottom: 0;
-        opacity: 1;
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeBottomDrawer {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
     }
 }
