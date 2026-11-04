@@ -1,4 +1,4 @@
-import { Spinner } from '@/ui/sppinner/spinner.tsx';
+import { Spinner } from '@/ui/spinner/spinner.tsx';
 
 const SpinnerPage = () => {
     return (

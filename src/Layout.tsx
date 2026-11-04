@@ -54,6 +54,22 @@ const Layout = () => {
                         >
                             Drawer
                         </NavLink>
+                        <NavLink
+                            to="/modal"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Modal
+                        </NavLink>
+                        <NavLink
+                            to="/tab"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Tab
+                        </NavLink>
                         {/*<NavLink*/}
                         {/*    to="/dropdown"*/}
                         {/*    className={({ isActive }) =>*/}

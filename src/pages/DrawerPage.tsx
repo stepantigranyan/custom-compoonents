@@ -1,27 +1,29 @@
-import { Search, X } from 'lucide-react';
-import { Drawer } from '@/ui/drawer/drawer.tsx';
+import { Drawer, DrawerHeader, DrawerBody } from '@/ui/drawer/drawer.tsx';
 import { Button } from '@/ui/button/button.tsx';
 
 const DrawerPage = () => {
     return (
         <div className="flex flex-col gap-y-20">
             <div className="flex flex-col gap-y-5">
-                <h1 className="text-4xl font-bold">Button</h1>
-                <p>To trigger an operation.</p>
+                <h1 className="text-4xl font-bold">Drawer</h1>
+                <p>A panel that slides out from the edge of the screen.</p>
             </div>
             <div className="flex flex-col gap-y-5">
                 <h2 className="text-2xl font-bold">When to use</h2>
                 <p className="break-all">
-                    A button means an operation (or a series of operations). Clicking a button will trigger its
-                    corresponding business logic.
+                    A Drawer is a panel that is typically overlaid on top of a page and slides in from the side. It
+                    contains a set of information or actions.
                     <br />
-                    In custom components we provide 4 variants of button.
+                    Since the user can interact with the Drawer without leaving the current page, tasks can be achieved
+                    more efficiently within the same context.
                 </p>
                 <ul className="flex flex-col gap-y-2 list-disc list-inside">
-                    <li>Solid button</li>
-                    <li>Outlined button</li>
-                    <li>Ghost button</li>
-                    <li>Filled button</li>
+                    <li>Use a Form to create or edit a set of information.</li>
+                    <li>
+                        Processing subtasks. When subtasks are too heavy for a Popover and we still want to keep the
+                        subtasks in the context of the main task, Drawer comes very handy.
+                    </li>
+                    <li>When the same Form is needed in multiple places.</li>
                 </ul>
             </div>
             <div className="flex flex-col gap-y-5">
@@ -29,71 +31,54 @@ const DrawerPage = () => {
                 <div className="grid grid-cols-2 gap-x-10">
                     <div className="flex flex-col gap-y-5">
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">
-                                We support three sizes of buttons: small, medium and large. If a large or small button
-                                is desired, set the size property to either large or small respectively. Omit the size
-                                property for a button with the default medium size.
-                            </p>
+                            <p className="text-lg">Basic Drawer</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer trigger={<Button>Open</Button>}>
-                                    <h1>Hello</h1>
+                                <Drawer position="right" trigger={<Button>Open</Button>}>
+                                    <DrawerHeader closeButtonPosition="right">
+                                        <h2 className="text-lg">Basic Drawer</h2>
+                                    </DrawerHeader>
+                                    <DrawerBody>
+                                        <ul>
+                                            <li>Some content</li>
+                                            <li>Some content</li>
+                                            <li>Some content</li>
+                                            <li>Some content</li>
+                                        </ul>
+                                    </DrawerBody>
                                 </Drawer>
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">You can change border radius using radius property.</p>
+                            <p className="text-lg">
+                                Resizable drawer that allows users to adjust the drawer's width or height by dragging
+                                the edge.
+                            </p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Button size="sm" rounded="sm">
-                                    Rounded sm
-                                </Button>
-                                <Button size="sm" rounded="md">
-                                    Rounded md
-                                </Button>
-                                <Button size="sm" rounded="lg">
-                                    Rounded lg
-                                </Button>
-                                <Button size="sm" rounded="full">
-                                    Rounded full
-                                </Button>
+                                <Drawer position="left" resize={true} trigger={<Button>Resize Drawer</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Resizable Drawer</h2>
+                                    </DrawerHeader>
+                                </Drawer>
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">
-                                To mark a button as disabled, add the disabled property to the Button.
-                            </p>
-                            <div className="flex flex-col gap-y-4">
-                                <div className="flex items-center gap-3">
-                                    <Button size="sm" variant="solid" color="blue">
-                                        Solid
-                                    </Button>
-                                    <Button disabled={true} size="sm" variant="solid" color="blue">
-                                        Primary
-                                    </Button>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <Button size="sm" variant="outline" color="blue">
-                                        Outlined
-                                    </Button>
-                                    <Button disabled={true} size="sm" variant="outline" color="green">
-                                        Outlined
-                                    </Button>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <Button size="sm" variant="ghost" color="blue">
-                                        Ghost
-                                    </Button>
-                                    <Button disabled={true} size="sm" variant="ghost" color="purple">
-                                        Ghost
-                                    </Button>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <Button size="sm" variant="filled" color="blue">
-                                        Filled
-                                    </Button>
-                                    <Button disabled={true} size="sm" variant="filled" color="purple">
-                                        Filled
-                                    </Button>
-                                </div>
+                            <p className="text-lg">Mask effect.</p>
+                            <div className="flex items-center flex-wrap gap-3">
+                                <Drawer position="left" maskType="blur" trigger={<Button>Blur</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Blur mask</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                                <Drawer position="left" maskType="dimmed" trigger={<Button>Dimmed</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Dimmed mask</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                                <Drawer position="left" maskType="none" trigger={<Button>None</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">None mask</h2>
+                                    </DrawerHeader>
+                                </Drawer>
                             </div>
                         </div>
                     </div>
@@ -103,133 +88,66 @@ const DrawerPage = () => {
                                 You can set the color and variant attributes at the same time can derive more variant
                                 buttons.
                             </p>
-                            <div className="flex flex-col gap-y-4">
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="black" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="black" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="black" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="black" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="gray" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="gray" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="gray" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="gray" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="red" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="red" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="red" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="red" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="green" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="green" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="green" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="green" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="blue" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="blue" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="blue" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="blue" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="yellow" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="yellow" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="yellow" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="yellow" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="pink" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="pink" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="pink" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="pink" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
-                                <div className="flex items-center flex-wrap gap-3">
-                                    <Button size="sm" color="purple" variant="solid">
-                                        Solid
-                                    </Button>
-                                    <Button size="sm" color="purple" variant="outline">
-                                        Outlined
-                                    </Button>
-                                    <Button size="sm" color="purple" variant="ghost">
-                                        Ghost
-                                    </Button>
-                                    <Button size="sm" color="purple" variant="filled">
-                                        Filled
-                                    </Button>
-                                </div>
+                            <div className="flex items-center flex-wrap gap-3">
+                                <Drawer position="left" trigger={<Button>Left Drawer</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Left Drawer</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                                <Drawer position="top" trigger={<Button>Top Drawer</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Top Drawer</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                                <Drawer position="right" trigger={<Button>Right Drawer</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Right Drawer</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                                <Drawer position="bottom" trigger={<Button>Bottom Drawer</Button>}>
+                                    <DrawerHeader>
+                                        <h2 className="text-lg">Bottom Drawer</h2>
+                                    </DrawerHeader>
+                                </Drawer>
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">
-                                You can set the position of a button's icon by setting the iconPlacement to start or end
-                                respectively.
+                                You can remove close button using showCloseButton attribute.
+                                <br />
+                                Or change position using closeButonPosition
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Button size="sm" icon={<Search className="w-4 h-4" />}>
-                                    Search
-                                </Button>
-                                <Button size="sm" iconPlacement="right" icon={<X className="w-4 h-4" />}>
-                                    Delete
-                                </Button>
+                                <Drawer position="right" trigger={<Button>Open</Button>}>
+                                    <DrawerHeader showCloseButton={false}>
+                                        <h2 className="text-lg">Drawer without close button</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                                <Drawer position="left" trigger={<Button>Open</Button>}>
+                                    <DrawerHeader closeButtonPosition={'left'}>
+                                        <h2 className="text-lg">Close Button Left position</h2>
+                                    </DrawerHeader>
+                                </Drawer>
+                            </div>
+                        </div>
+                        <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
+                            <p className="text-lg">Render in current dom. custom container,</p>
+                            <div className="flex items-center flex-wrap gap-3">
+                                <div
+                                    id="drawer-inside-render"
+                                    className="relative border border-solid border-gray-300 rounded-md overflow-hidden w-full h-100 flex flex-col items-center justify-center gap-y-3"
+                                >
+                                    <h2 className="text-lg">Rendered inside component.</h2>
+                                    <Drawer
+                                        target="drawer-inside-render"
+                                        position="right"
+                                        trigger={<Button>Open</Button>}
+                                    >
+                                        <DrawerHeader>
+                                            <h2 className="text-lg">Hello</h2>
+                                        </DrawerHeader>
+                                    </Drawer>
+                                </div>
                             </div>
                         </div>
                     </div>

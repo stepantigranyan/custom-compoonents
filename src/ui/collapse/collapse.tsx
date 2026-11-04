@@ -1,69 +1,30 @@
+import { type FC, createContext, useContext, useState, useRef } from 'react';
+
+import type {
+    collapse_item_data,
+    CollapseItemBodyProps,
+    CollapseItemHeaderProps,
+    CollapseItemProps,
+    CollapseProps,
+} from '@/ui/collapse/types.ts';
+
 import {
-    type HTMLAttributes,
-    type FC,
-    type JSX,
-    type Dispatch,
-    type SetStateAction,
-    createContext,
-    useContext,
-    useState,
-    useRef,
-} from 'react';
+    collapseDefaultStyles,
+    collapseItemBodyDefaultStyles,
+    collapseItemDefaultStyles,
+    collapseItemHeaderDefaultStyles,
+    collapseItemHeaderLabelDefaultStyles,
+    collapseSize,
+} from '@/ui/collapse/styles.ts';
+
 import { ChevronRight } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
 import { cn } from '@/utils/cn';
 
-//============================================
-// 1. Types and Interfaces
-//============================================
-
-type collapse_size = 'sm' | 'md' | 'lg';
-type collapse_item_data = {
-    isChecked: boolean;
-    changeChecked: Dispatch<SetStateAction<boolean>>;
-};
-
-interface CollapseProps extends HTMLAttributes<HTMLDivElement> {
-    size?: collapse_size;
-    icon?: JSX.Element;
-}
-
-interface CollapseItemProps extends HTMLAttributes<HTMLDivElement> {
-    open?: boolean;
-}
-
-interface CollapseItemHeaderProps extends HTMLAttributes<HTMLDivElement> {}
-
-interface CollapseItemBodyProps extends HTMLAttributes<HTMLDivElement> {}
-
-//============================================
-// 2. Style Mappings
-//============================================
-
-const collapseSize: Record<collapse_size, string> = {
-    sm: 'text-sm px-3 py-2',
-    md: 'text-md px-3 py-3',
-    lg: 'text-lg px-3 py-4',
-};
-
-const collapseDefaultStyles = 'border border-solid border-gray-400 rounded-md flex flex-col overflow-hidden';
-const collapseItemDefaultStyles = 'not-last:border-b not-last:border-b-solid not-last:border-b-gray-400';
-const collapseItemHeaderDefaultStyles = 'bg-gray-200 flex items-center gap-x-1 shrink-0';
-const collapseItemHeaderLabelDefaultStyles = 'cursor-pointer transition-all duration-200';
-const collapseItemBodyDefaultStyles = 'relative grid shrink-0 transition-[grid-template-rows] duration-355 ease-in-out';
-
-//============================================
-// 3. Context
-//============================================
-
 const CollapseContext = createContext<CollapseProps | null>(null);
 const CollapseItemContext = createContext<collapse_item_data | null>(null);
 
-//============================================
-// 4. Components
-//============================================
-
-const Collapse: FC<CollapseProps> = ({
+export const Collapse: FC<CollapseProps> = ({
     size = 'md',
     icon = <ChevronRight size={20} />,
     className,
@@ -79,7 +40,7 @@ const Collapse: FC<CollapseProps> = ({
     );
 };
 
-const CollapseItem: FC<CollapseItemProps> = ({ children, open = false }) => {
+export const CollapseItem: FC<CollapseItemProps> = ({ children, open = false }) => {
     const [checked, setChecked] = useState<boolean>(open);
     const data: collapse_item_data = {
         isChecked: checked,
@@ -93,7 +54,7 @@ const CollapseItem: FC<CollapseItemProps> = ({ children, open = false }) => {
     );
 };
 
-const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ className, children, ...props }) => {
+export const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ className, children, ...props }) => {
     const id = useRef<string>(uuidv4());
     const { size, icon } = useContext(CollapseContext);
     const { isChecked, changeChecked } = useContext(CollapseItemContext);
@@ -121,7 +82,7 @@ const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ className, children, 
     );
 };
 
-const CollapseItemBody: FC<CollapseItemBodyProps> = ({ className, children, ...props }) => {
+export const CollapseItemBody: FC<CollapseItemBodyProps> = ({ className, children, ...props }) => {
     const { size } = useContext(CollapseContext);
     const { isChecked } = useContext(CollapseItemContext);
 
@@ -136,5 +97,3 @@ const CollapseItemBody: FC<CollapseItemBodyProps> = ({ className, children, ...p
         </div>
     );
 };
-
-export { Collapse, CollapseItem, CollapseItemHeader, CollapseItemBody };

@@ -6,6 +6,8 @@ import SpinnerPage from './pages/SpinnerPage.tsx';
 import CollapsePage from './pages/CollapsePage.tsx';
 import EmptyPage from './pages/EmptyPage';
 import DrawerPage from '@/pages/DrawerPage.tsx';
+import ModalPage from '@/pages/ModalPage.tsx';
+import { TabPage } from '@/pages/TabPage.tsx';
 // import NotificationPage from './pages/NotificationPage';
 // import DropdownPage from './pages/DropdownPage.tsx';
 
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
             {
                 path: 'drawer',
                 element: <DrawerPage />,
+            },
+            {
+                path: 'modal',
+                element: <ModalPage />,
+            },
+            {
+                path: 'tab',
+                element: <TabPage />,
             },
             // {
             //     path: 'notification',

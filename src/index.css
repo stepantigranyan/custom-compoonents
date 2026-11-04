@@ -99,3 +99,43 @@
         transform: translateY(100%);
     }
 }
+
+@keyframes openMask {
+    from {
+        background-color: rgba(75, 85, 99, 0);
+    }
+    to {
+        background-color: rgba(75, 85, 99, 0.5);
+    }
+}
+
+@keyframes closeMask {
+    from {
+        background-color: rgba(75, 85, 99, 0.5);
+    }
+    to {
+        background-color: rgba(75, 85, 99, 0);
+    }
+}
+
+@keyframes openModal {
+    from {
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes closeModal {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+}
