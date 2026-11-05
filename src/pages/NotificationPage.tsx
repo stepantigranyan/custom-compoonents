@@ -1,10 +1,11 @@
-// import { NotificationGroup, Notification, type NotificationProps } from '@/ui/notification/notification.tsx'
+// import { useState } from "react";
+// import { NotificationGroup } from '@/ui/notification/notification.tsx';
 // import {Button} from "@/ui/button/button.tsx";
-// import {useState} from "react";
+//
+// import { v4 as uuidv4 } from "uuid";
 //
 // const NotificationPage = () => {
-//     const [notificationsTopLeft, setNotificationsTopLeft] = useState<NotificationProps[]>([]);
-//     const [notificationsBottomLeft, setNotificationsBottomLeft] = useState<NotificationProps[]>([]);
+//     const [ntfc, setNtfc] = useState([]);
 //
 //     return (
 //         <div className="flex flex-col gap-y-20">
@@ -33,22 +34,13 @@
 //                             <div className="flex items-center gap-x-2">
 //                                 <NotificationGroup
 //                                     position="topLeft"
-//                                     notifications={notificationsTopLeft}
-//                                     render={<Button onClick={() => setNotificationsTopLeft((prev) => [{title: 'Notification'}, ...prev])}
-//                                     >Top Left</Button>}
+//                                     trigger={<Button onClick={() => setNtfc((prev) => [{ title: uuidv4() }, ...prev])}>Send message</Button>}
+//                                     notifications={ntfc}
 //                                 />
-//                                 <NotificationGroup
-//                                     position="bottomLeft"
-//                                     notifications={notificationsBottomLeft}
-//                                     render={<Button onClick={() => setNotificationsBottomLeft((prev) => [{title: 'Notification'}, ...prev])}
-//                                     >Bottom Left</Button>}
-//                                 />
-//                                 </div>
+//                             </div>
 //                         </div>
 //                     </div>
-//                     <div className="flex flex-col gap-y-5">
-//
-//                     </div>
+//                     <div className="flex flex-col gap-y-5"></div>
 //                 </div>
 //             </div>
 //         </div>

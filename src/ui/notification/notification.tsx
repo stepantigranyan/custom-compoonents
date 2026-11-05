@@ -1,88 +1,109 @@
-// import {type CSSProperties, type FC, type HTMLAttributes, type JSX} from "react";
-// import {v4 as uuidv4} from 'uuid';
-// import {cn} from '@/utils/cn';
+// import {
+//     type ButtonHTMLAttributes,
+//     cloneElement,
+//     type FC, type HTMLAttributes,
+//     isValidElement,
+//     type ReactElement,
+//     useEffect,
+//     useState
+// } from 'react';
 //
-// type notification_position = 'topLeft' | 'top' | 'topRight' | 'bottomLeft' | 'bottom' | 'bottomRight';
+// import type { NotificationGroupProps, NotificationProps } from './types';
+// import {
+//     notificationDefaultStyles,
+//     notificationGroupDefaultStyles,
+//     notificationPosition,
+//     notificationAnimations,
+// } from '@/ui/notification/styles.ts';
 //
+// import { Teleport } from '@/ui/shared/Teleport.tsx';
 //
-// interface NotificationGroupProps extends HTMLAttributes<HTMLDivElement> {
-//     position?: notification_position;
-//     notifications?: NotificationData[];
-//     render?: JSX.Element;
-// }
+// import { v4 as uuidv4 } from 'uuid';
+// import { cn } from '@/utils/cn';
 //
-// interface NotificationProps extends HTMLAttributes<HTMLDivElement> {
-//     title?: string;
-//     description?: string;
-//     actions?: HTMLButtonElement[];
-//     isFirst?: boolean;
-// }
+// const NotificationGroup: FC<NotificationGroupProps> = ({
+//     notifications,
+//     position = 'topRight',
+//     trigger,
+//     className,
+//     ...props
+// }) => {
+//     const [visible, setVisible] = useState<boolean>(false);
+//     const [open, setOpen] = useState<boolean>(false);
 //
-// interface NotificationData {
-//     title?: string;
-//     description?: string;
-//     actions?: HTMLButtonElement[];
-// }
+//     useEffect(() => {
+//         if (open) {
+//             setVisible(true);
+//         }
+//     }, [open]);
 //
-// const notificationPosition: Record<notification_position, string> = {
-//     topLeft: 'left-5 top-5 flex-col',
-//     top: 'left-1/2 top-5 -translate-x-1/2 flex-col',
-//     topRight: 'right-5 top-5 flex-col',
-//     bottomLeft: 'left-5 bottom-5 flex-col-reverse',
-//     bottom: 'left-1/2 bottom-5 -translate-x-1/2 flex-col-reverse',
-//     bottomRight: 'right-5 bottom-5 flex-col-reverse',
-// }
+//     let animationMode = '';
 //
-// const notificationGroupDefaultStyles = 'fixed max-h-screen';
-// const notificationDefaultStyles = 'absolute p-2 min-w-100 min-h-20 flex items-center justify-center rounded-md bg-gray-200 shadow-lg z-50 transition-all duration-200 delay-200 animate-[removeNotification_0.2s_ease_2s]';
+//     if (position.toLowerCase().includes('left')) {
+//         animationMode = 'left';
+//     } else if (position.toLowerCase().includes('right')) {
+//         animationMode = 'right';
+//     } else if (position.toLowerCase().includes('top')) {
+//         animationMode = 'top';
+//     } else {
+//         animationMode = 'bottom';
+//     }
 //
-// const Notification: FC<NotificationProps> = ({ title, description, actions, isFirst, className, children, ...props}) => {
-//     const addingAnimation = isFirst ?  '' : '';
-//     return (
-//         <div className={cn(notificationDefaultStyles, addingAnimation, className)} {...props}>
-//             {title && <h4>{title}</h4>}
-//             {description && <p>{description}</p>}
-//             {actions && <div>{actions}</div>}
-//         </div>
-//     )
-// };
-//
-// const NotificationGroup: FC<NotificationGroupProps> = ({ notifications = [], position = 'topRight', render, className, ...props }) => {
-//     const placement = position.includes('top') ? 'top' : 'bottom';
 //     const positionStyle = notificationPosition[position];
+//     const openAnimation = notificationAnimations[animationMode].open;
+//     const closeAnimation = notificationAnimations[animationMode].close;
+//
+//     const toggle = () => {
+//         setOpen(true);
+//         setTimeout(() => {
+//             setOpen(false);
+//         }, 2000);
+//     };
+//
+//     const handleAnimationEnd = () => {
+//         if (!open) {
+//             setVisible(false);
+//         }
+//     };
+//
+//     const renderedTrigger =
+//         trigger && isValidElement(trigger)
+//             ? cloneElement(trigger as ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>, {
+//                 onClick: (e) => {
+//                     const originalOnClick = (trigger.props as HTMLAttributes<HTMLButtonElement>).onClick;
+//                     if (originalOnClick) {
+//                         originalOnClick(e);
+//                     }
+//
+//                     toggle();
+//                 },
+//             })
+//             : null;
 //
 //     return (
 //         <>
-//             <div
-//                 className={cn(notificationGroupDefaultStyles, positionStyle, className)} {...props}
-//             >
-//                 <div className='size-full group'>
-//                     {
-//                         notifications.length !== 0 && notifications.map((x, i) => {
-//                             const index = placement === 'top' ? notifications.length - i - 1 : i;
-//                             const stackStyles: CSSProperties = {[placement]: `${(20 + index * 5) + 'px'}`, '--moving': `calc(100% * ${index} + ${index * 5}px)`};
-//
-//                             return <Notification
-//                                 isFirst={!index}
-//                                 key={uuidv4()}
-//                                 title={x.title}
-//                                 description={x.description}
-//                                 actions={x.actions}
-//                                 style={stackStyles}
-//                                 className='group-hover:translate-y-(--moving)'
-//                             />
-//                         })
-//                     }
-//                 </div>
-//             </div>
+//             {visible && (
+//                 <Teleport target={'notification-root'}>
+//                     <div className={cn(notificationGroupDefaultStyles, className)}>
+//                         <div
+//                             className={cn(
+//                                 notificationDefaultStyles,
+//                                 positionStyle,
+//                                 open ? openAnimation : closeAnimation
+//                             )}
+//                             onAnimationEnd={handleAnimationEnd}
+//                         >
+//                             { notifications[0].title }
+//                         </div>
+//                     </div>
+//                 </Teleport>
+//             )}
 //
 //             {
-//                 render
+//                 renderedTrigger
 //             }
-//
 //         </>
 //     );
 // };
 //
-//
-// export { NotificationGroup, Notification, type NotificationProps };
+// export { NotificationGroup, type NotificationProps };

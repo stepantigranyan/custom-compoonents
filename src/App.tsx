@@ -7,9 +7,10 @@ import CollapsePage from './pages/CollapsePage.tsx';
 import EmptyPage from './pages/EmptyPage';
 import DrawerPage from '@/pages/DrawerPage.tsx';
 import ModalPage from '@/pages/ModalPage.tsx';
-import { TabPage } from '@/pages/TabPage.tsx';
-// import NotificationPage from './pages/NotificationPage';
-// import DropdownPage from './pages/DropdownPage.tsx';
+import TabPage from '@/pages/TabPage.tsx';
+import DropdownPage from '@/pages/DropdownPage.tsx';
+import FormPage from "@/pages/FormPage.tsx";
+// import NotificationPage from '@/pages/NotificationPage.tsx';
 
 const router = createBrowserRouter([
     {
@@ -52,10 +53,14 @@ const router = createBrowserRouter([
             //     path: 'notification',
             //     element: <NotificationPage />,
             // },
-            // {
-            //     path: 'dropdown',
-            //     element: <DropdownPage />,
-            // },
+            {
+                path: 'dropdown',
+                element: <DropdownPage />,
+            },
+            {
+                path: 'form',
+                element: <FormPage />,
+            },
         ],
     },
 ]);

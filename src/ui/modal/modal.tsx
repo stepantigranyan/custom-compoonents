@@ -64,7 +64,6 @@ export const Modal: FC<ModalProps> = ({
 
     const toggle = () => {
         setOpen((prev) => !prev);
-        console.log(open);
     };
 
     const handleAnimationEnd = () => {

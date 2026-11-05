@@ -38,14 +38,14 @@ const Layout = () => {
                         >
                             Empty
                         </NavLink>
-                        <NavLink
-                            to="/notification"
-                            className={({ isActive }) =>
-                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
-                            }
-                        >
-                            Notification
-                        </NavLink>
+                        {/*<NavLink*/}
+                        {/*    to="/notification"*/}
+                        {/*    className={({ isActive }) =>*/}
+                        {/*        isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'*/}
+                        {/*    }*/}
+                        {/*>*/}
+                        {/*    Notification*/}
+                        {/*</NavLink>*/}
                         <NavLink
                             to="/drawer"
                             className={({ isActive }) =>
@@ -70,16 +70,22 @@ const Layout = () => {
                         >
                             Tab
                         </NavLink>
-                        {/*<NavLink*/}
-                        {/*    to="/dropdown"*/}
-                        {/*    className={({ isActive }) =>*/}
-                        {/*        isActive*/}
-                        {/*            ? 'text-blue-600 font-bold border-b-2 border-blue-600'*/}
-                        {/*            : 'text-gray-600'*/}
-                        {/*    }*/}
-                        {/*>*/}
-                        {/*    Dropdowns*/}
-                        {/*</NavLink>*/}
+                        <NavLink
+                            to="/dropdown"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Dropdowns
+                        </NavLink>
+                        <NavLink
+                            to="/form"
+                            className={({ isActive }) =>
+                                isActive ? 'text-blue-600 font-bold border-b-2 border-blue-600' : 'text-gray-600'
+                            }
+                        >
+                            Form
+                        </NavLink>
                     </div>
                 </div>
             </header>

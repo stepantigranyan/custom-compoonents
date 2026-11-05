@@ -6,28 +6,6 @@
     }
 }
 
-@keyframes addNotification {
-    0% {
-        left: -10px;
-        opacity: 0.5;
-    }
-    100% {
-        left: 0;
-        opacity: 1;
-    }
-}
-
-@keyframes removeNotification {
-    0% {
-        left: 0;
-        opacity: 1;
-    }
-    100% {
-        left: -30px;
-        opacity: 0;
-    }
-}
-
 @keyframes openTopDrawer {
     from {
         transform: translateY(-100%);
@@ -137,5 +115,77 @@
     to {
         opacity: 0.8;
         transform: scale(0.9);
+    }
+}
+
+@keyframes openTopNtfc {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeTopNtfc {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes openLeftNtfc {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeLeftNtfc {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes openRightNtfc {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeRightNtfc {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes openBottomNtfc {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeBottomNtfc {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(100%);
     }
 }
