@@ -9,8 +9,8 @@ import DrawerPage from '@/pages/DrawerPage.tsx';
 import ModalPage from '@/pages/ModalPage.tsx';
 import TabPage from '@/pages/TabPage.tsx';
 import DropdownPage from '@/pages/DropdownPage.tsx';
-import FormPage from "@/pages/FormPage.tsx";
-// import NotificationPage from '@/pages/NotificationPage.tsx';
+import FormPage from '@/pages/FormPage.tsx';
+import NotificationPage from '@/pages/NotificationPage.tsx';
 
 const router = createBrowserRouter([
     {
@@ -49,10 +49,10 @@ const router = createBrowserRouter([
                 path: 'tab',
                 element: <TabPage />,
             },
-            // {
-            //     path: 'notification',
-            //     element: <NotificationPage />,
-            // },
+            {
+                path: 'notification',
+                element: <NotificationPage />,
+            },
             {
                 path: 'dropdown',
                 element: <DropdownPage />,

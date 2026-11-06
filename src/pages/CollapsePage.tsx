@@ -12,9 +12,6 @@ const CollapsePage = () => {
                 <h2 className="text-2xl font-bold">When to use</h2>
                 <ul className="flex flex-col gap-y-2 list-disc list-inside">
                     <li>Can be used to group or hide complex regions to keep the page clean.</li>
-                    <li>
-                        Accordion is a special kind of Collapse, which allows only one panel to be expanded at a time.
-                    </li>
                 </ul>
             </div>
             <div className="flex flex-col gap-y-5">
@@ -41,7 +38,7 @@ const CollapsePage = () => {
                                         <CollapseItemBody>
                                             A dog is a type of domesticated animal. Known for its loyalty and
                                             faithfulness, it can be found as a welcome guest in many households across
-                                            the world.
+                                            the world.2
                                         </CollapseItemBody>
                                     </CollapseItem>
                                     <CollapseItem>
@@ -49,7 +46,7 @@ const CollapsePage = () => {
                                         <CollapseItemBody>
                                             A dog is a type of domesticated animal. Known for its loyalty and
                                             faithfulness, it can be found as a welcome guest in many households across
-                                            the world.
+                                            the world.3
                                         </CollapseItemBody>
                                     </CollapseItem>
                                 </Collapse>

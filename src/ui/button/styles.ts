@@ -17,7 +17,7 @@ export const btnSize: Record<btn_size, string> = {
 
 export const btnVariant: Record<btn_variant, Record<btn_color, string>> = {
     solid: {
-        black: 'text-white  bg-black hover:bg-gray-800',
+        black: 'text-white bg-black hover:bg-gray-800',
         gray: 'text-white bg-gray-600 hover:bg-gray-500',
         red: 'text-white bg-red-600 hover:bg-red-500',
         green: 'text-white bg-green-600 hover:bg-green-500',
@@ -59,4 +59,4 @@ export const btnVariant: Record<btn_variant, Record<btn_color, string>> = {
 };
 
 export const buttonDefaultStyles =
-    'cursor-pointer inline-flex shrink-0 items-center justify-center gap-x-2 shadow-md transition-all duration-200 active:translate-y-0.5 disabled:cursor-not-allowed disabled:pointer-events-none disabled:text-gray-400 disabled:bg-gray-100 disabled:border-gray-400';
+    'cursor-pointer inline-flex shrink-0 items-center justify-center gap-x-2 transition-all duration-200 active:translate-y-0.5 disabled:cursor-not-allowed disabled:text-gray-400 disabled:bg-gray-100 disabled:border-gray-400';

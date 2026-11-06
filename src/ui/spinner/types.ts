@@ -7,7 +7,7 @@ export type spin_color = 'black' | 'gray' | 'red' | 'green' | 'blue' | 'yellow' 
 
 export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
     size?: spin_size;
-    variant?: spin_variant;
     speed?: spin_speed;
+    variant?: spin_variant;
     color?: spin_color;
 }

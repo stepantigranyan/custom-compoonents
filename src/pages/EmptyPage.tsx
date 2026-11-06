@@ -1,7 +1,7 @@
 import { Empty, EmptyImg, EmptyBody, EmptyTitle, EmptyDescription } from '@/ui/empty/empty.tsx';
 import { Button } from '@/ui/button/button.tsx';
 
-const SpinnerPage = () => {
+const EmptyPage = () => {
     return (
         <div className="flex flex-col gap-y-20">
             <div className="flex flex-col gap-y-5">
@@ -115,4 +115,4 @@ const SpinnerPage = () => {
     );
 };
 
-export default SpinnerPage;
+export default EmptyPage;

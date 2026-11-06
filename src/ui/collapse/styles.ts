@@ -7,7 +7,8 @@ export const collapseSize: Record<collapse_size, string> = {
 };
 
 export const collapseDefaultStyles = 'border border-solid border-gray-400 rounded-md flex flex-col overflow-hidden';
-export const collapseItemDefaultStyles = 'not-last:border-b not-last:border-b-solid not-last:border-b-gray-400';
+export const collapseItemDefaultStyles =
+    'cursor-pointer not-last:border-b not-last:border-b-solid not-last:border-b-gray-400';
 export const collapseItemHeaderDefaultStyles = 'bg-gray-200 flex items-center gap-x-1 shrink-0';
 export const collapseItemHeaderLabelDefaultStyles = 'cursor-pointer transition-all duration-200';
 export const collapseItemBodyDefaultStyles =

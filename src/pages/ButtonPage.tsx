@@ -75,7 +75,7 @@ const ButtonPage = () => {
                                     <Button size="sm" variant="outline" color="blue">
                                         Outlined
                                     </Button>
-                                    <Button disabled={true} size="sm" variant="outline" color="green">
+                                    <Button disabled={true} size="sm" variant="outline" color="blue">
                                         Outlined
                                     </Button>
                                 </div>
@@ -83,7 +83,7 @@ const ButtonPage = () => {
                                     <Button size="sm" variant="ghost" color="blue">
                                         Ghost
                                     </Button>
-                                    <Button disabled={true} size="sm" variant="ghost" color="purple">
+                                    <Button disabled={true} size="sm" variant="ghost" color="blue">
                                         Ghost
                                     </Button>
                                 </div>
@@ -91,7 +91,7 @@ const ButtonPage = () => {
                                     <Button size="sm" variant="filled" color="blue">
                                         Filled
                                     </Button>
-                                    <Button disabled={true} size="sm" variant="filled" color="purple">
+                                    <Button disabled={true} size="sm" variant="filled" color="blue">
                                         Filled
                                     </Button>
                                 </div>
