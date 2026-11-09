@@ -1,22 +1,19 @@
 import {
     type ButtonHTMLAttributes,
-    cloneElement,
     type FC,
     type HTMLAttributes,
-    isValidElement,
     type ReactElement,
+    isValidElement,
+    cloneElement,
 } from 'react';
-import type { DropDownProps, DropdownItemProps, DropDownSeparatorProps } from '@/ui/dropdown/types.ts';
 
-import {
-    ddMenuPlacement,
-    ddItemModel,
-    dropdownDefaultStyles,
-    dropdownItemDefaultStyles,
-} from '@/ui/dropdown/styles.ts';
+import type { DropDownProps } from '@/ui/dropdown/types';
+
+import { ddMenuPlacement, dropdownDefaultStyles } from '@/ui/dropdown/styles';
+
 import { cn } from '@/utils/cn';
 
-export const DropDown: FC<DropDownProps> = ({ placement = 'bottom', trigger, className, children }) => {
+export const Dropdown: FC<DropDownProps> = ({ placement = 'bottom', trigger, className, children }) => {
     const placementStyles = ddMenuPlacement[placement];
 
     const renderedTrigger =
@@ -38,26 +35,4 @@ export const DropDown: FC<DropDownProps> = ({ placement = 'bottom', trigger, cla
             {renderedTrigger}
         </div>
     );
-};
-
-export const DropDownItem: FC<DropdownItemProps> = ({
-    icon,
-    iconPlacement = 'left',
-    model = 'default',
-    className,
-    children,
-}) => {
-    const modelStyles = ddItemModel[model];
-
-    return (
-        <li className={cn(dropdownItemDefaultStyles, modelStyles, className)}>
-            {iconPlacement === 'left' && icon}
-            {children}
-            {iconPlacement === 'right' && icon}
-        </li>
-    );
-};
-
-export const DropDownSeparator: FC<DropDownSeparatorProps> = ({ className }) => {
-    return <div className={cn('w-full h-px bg-gray-300', className)}></div>;
 };

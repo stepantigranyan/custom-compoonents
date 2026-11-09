@@ -1,5 +1,8 @@
-import { Modal, ModalHeader, ModalBody, ModalActions } from '@/ui/modal/modal.tsx';
-import { Button } from '@/ui/button/button.tsx';
+import { Modal } from '@/ui/modal/Modal';
+import { ModalHeader } from '@/ui/modal/ModalHeader';
+import { ModalBody } from '@/ui/modal/ModalBody';
+import { ModalActions } from '@/ui/modal/ModalActions';
+import { Button } from '@/ui/button/Button';
 
 const SpinnerPage = () => {
     return (

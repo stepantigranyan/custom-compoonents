@@ -1,10 +1,10 @@
 import type { HTMLAttributes, JSX } from 'react';
 
-export type notification_position = 'topLeft' | 'top' | 'topRight' | 'bottomLeft' | 'bottom' | 'bottomRight';
-export type notification_adding_position = 'top' | 'left' | 'bottom' | 'right';
+export type NotificationPosition = 'topLeft' | 'top' | 'topRight' | 'bottomLeft' | 'bottom' | 'bottomRight';
+export type NotificationAddingPosition = 'top' | 'left' | 'bottom' | 'right';
 
 export interface NotificationGroupProps extends HTMLAttributes<HTMLDivElement> {
-    position?: notification_position;
+    position?: NotificationPosition;
     notifications?: NotificationData[];
     trigger?: JSX.Element;
 }

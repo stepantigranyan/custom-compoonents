@@ -1,6 +1,6 @@
 import { type HTMLAttributes, type JSX } from 'react';
 
-export type dd_menu_placement =
+export type DDMenuPlacement =
     | 'top'
     | 'topLeft'
     | 'topRight'
@@ -14,23 +14,23 @@ export type dd_menu_placement =
     | 'right'
     | 'rightBottom';
 
-export type dd_menu_action_type = 'click' | 'hover';
+export type DDMenuActionType = 'click' | 'hover';
 
-export type dd_item_icon_placement = 'left' | 'right';
-export type dd_item_model = 'default' | 'danger' | 'warning' | 'disabled';
+export type DDMenuIconPlacement = 'left' | 'right';
+export type DDMenuItemModel = 'default' | 'danger' | 'warning' | 'disabled';
 
 export interface DropDownProps extends HTMLAttributes<HTMLUListElement> {
-    placement?: dd_menu_placement;
+    placement?: DDMenuPlacement;
     trigger?: JSX.Element;
-    actionType?: dd_menu_action_type;
+    actionType?: DDMenuActionType;
     open?: boolean;
     onOpenChange?: (isOpen: boolean) => void;
 }
 
 export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {
     icon?: JSX.Element;
-    iconPlacement?: dd_item_icon_placement;
-    model?: dd_item_model;
+    iconPlacement?: DDMenuIconPlacement;
+    model?: DDMenuItemModel;
 }
 
 export interface DropDownSeparatorProps {

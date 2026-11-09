@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { SpinnerProps } from '@/ui/spinner/types.ts';
-import { spinColor, spinnerDefaultStyles, spinSize, spinSpeed, spinVariant } from '@/ui/spinner/styles.ts';
+import type { SpinnerProps } from '@/ui/spinner/types';
+import { spinColor, spinnerDefaultStyles, spinSize, spinSpeed, spinVariant } from '@/ui/spinner/styles';
 
 import { cn } from '@/utils/cn';
 

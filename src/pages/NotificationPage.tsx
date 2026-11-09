@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NotificationGroup } from '@/ui/notification/notification.tsx';
-import { Button } from '@/ui/button/button.tsx';
+import { Button } from '@/ui/button/Button.tsx';
 
 import { v4 as uuidv4 } from 'uuid';
 

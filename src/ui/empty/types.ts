@@ -1,23 +1,28 @@
 import type { HTMLAttributes, ImgHTMLAttributes } from 'react';
 
-export type empty_size = 'sm' | 'md' | 'lg';
-export type empty_img = 'default' | 'notFound';
+export type EmptySize = 'sm' | 'md' | 'lg';
+export type EmptyImg = 'default' | 'notFound';
 
-export interface EmptyProps extends HTMLAttributes<HTMLDivElement> {}
+export interface EmptyProps extends HTMLAttributes<HTMLDivElement> {
+    imgSize?: EmptySize;
+    imgVariant?: EmptyImg;
+    title?: string;
+    description?: string;
+}
 
 export interface EmptyImgProps extends ImgHTMLAttributes<HTMLImageElement> {
-    size?: empty_size;
-    variant?: empty_img;
+    size?: EmptySize;
+    variant?: EmptyImg;
 }
 
 export interface EmptyBodyProps extends HTMLAttributes<HTMLDivElement> {
-    size?: empty_size;
+    size?: EmptySize;
 }
 
 export interface EmptyTitleProps extends HTMLAttributes<HTMLDivElement> {
-    size?: empty_size;
+    size?: EmptySize;
 }
 
 export interface EmptyDescriptionProps extends HTMLAttributes<HTMLDivElement> {
-    size?: empty_size;
+    size?: EmptySize;
 }

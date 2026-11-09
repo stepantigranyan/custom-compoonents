@@ -1,9 +1,9 @@
 import { type HTMLAttributes, type JSX } from 'react';
 
-export type tab_size = 'sm' | 'md' | 'lg';
-export type tab_direction = 'horizontal' | 'vertical';
-export type tab_context_position = 'start' | 'center' | 'end';
-export type tab_position = 'top' | 'left' | 'bottom' | 'right';
+export type TabSize = 'sm' | 'md' | 'lg';
+export type TabDirection = 'horizontal' | 'vertical';
+export type TabContextPosition = 'start' | 'center' | 'end';
+export type TabPosition = 'top' | 'left' | 'bottom' | 'right';
 
 export interface TabItemProps {
     key: string;
@@ -13,18 +13,17 @@ export interface TabItemProps {
 }
 
 export interface TabProps extends HTMLAttributes<HTMLDivElement> {
-    size?: tab_size;
-    direction?: tab_direction;
-    contextPosition?: tab_context_position;
     data?: TabItemProps[];
     currentPage?: number;
-    activePosition?: tab_position;
-    position?: tab_position;
+    position?: TabPosition;
 }
 
 export interface TabHeaderProps extends HTMLAttributes<HTMLDivElement> {
-    position?: tab_position;
-    currentPage?: number;
+    contextPosition?: TabContextPosition;
+    direction?: TabDirection;
+    size?: TabSize;
+    activePosition?: TabPosition;
+    position?: TabPosition;
 }
 
 export interface TabPageProps extends HTMLAttributes<HTMLDivElement> {}

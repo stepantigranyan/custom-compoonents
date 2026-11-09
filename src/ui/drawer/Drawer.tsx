@@ -1,54 +1,40 @@
 import {
-    type ButtonHTMLAttributes,
-    cloneElement,
-    createContext,
     type FC,
+    type ButtonHTMLAttributes,
     type HTMLAttributes,
-    isValidElement,
     type ReactElement,
-    useContext,
     useEffect,
     useRef,
     useState,
+    isValidElement,
+    createContext,
+    cloneElement,
 } from 'react';
 
-import type { DrawerBodyProps, DrawerCloseButtonProps, DrawerHeaderProps, DrawerProps } from '@/ui/drawer/types.ts';
+import type { DrawerProps } from '@/ui/drawer/types';
 
 import {
     drawerAnimations,
     drawerDefaultStyles,
-    drawerHeaderCloseButtonDefaultStyles,
-    drawerHeaderDefaultStyles,
     drawerMask,
     drawerPosition,
     drawerResizable,
     maskDefaultStyles,
     maskAnimations,
-} from '@/ui/drawer/styles.ts';
+} from '@/ui/drawer/styles';
 
-import { Mask, Placement, Positions, DRAWER_ROOT } from '@/ui/drawer/consts.ts';
+import { Teleport } from '@/ui/shared/Teleport';
 
-import { Teleport } from '@/ui/shared/Teleport.tsx';
+import { useOutsideClick } from '@/hooks/useOutsideClick';
 
-import { useOutsideClick } from '@/hooks/useOutsideClick.ts';
-
-import { X } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
-const DrawerContext = createContext<{ close: () => void }>(null);
-
-const DrawerCloseButton: FC<DrawerCloseButtonProps> = ({ className, ...props }) => {
-    return (
-        <button className={cn(drawerHeaderCloseButtonDefaultStyles, className)} {...props}>
-            {<X size={18} />}
-        </button>
-    );
-};
+export const DrawerContext = createContext<{ close: () => void }>(null);
 
 export const Drawer: FC<DrawerProps> = ({
-    position = Positions.LEFT,
-    maskType = Mask.BLUR,
-    target = DRAWER_ROOT,
+    position = 'left',
+    maskType = 'blur',
+    target = 'drawer-root',
     resize = false,
     showCloseButton = true,
     maskStyles,
@@ -67,7 +53,7 @@ export const Drawer: FC<DrawerProps> = ({
         }
     }, [open]);
 
-    const placementStyle = target === DRAWER_ROOT ? Placement.FIXED : Placement.ABSOLUTE;
+    const placementStyle = target === 'drawer-root' ? 'fixed' : 'absolute';
     const positionStyle = drawerPosition[position];
     const maskStyle = drawerMask[maskType];
     const resizeStyle = resize ? drawerResizable[position] : '';
@@ -136,31 +122,5 @@ export const Drawer: FC<DrawerProps> = ({
 
             {renderedTrigger}
         </DrawerContext.Provider>
-    );
-};
-
-export const DrawerHeader: FC<DrawerHeaderProps> = ({
-    showCloseButton = true,
-    closeButtonPosition = Positions.RIGHT,
-    className,
-    children,
-    ...props
-}) => {
-    const { close } = useContext(DrawerContext);
-
-    return (
-        <div className={cn(drawerHeaderDefaultStyles, className)} {...props}>
-            {showCloseButton && closeButtonPosition === Positions.LEFT && <DrawerCloseButton onClick={close} />}
-            {children}
-            {showCloseButton && closeButtonPosition === Positions.RIGHT && <DrawerCloseButton onClick={close} />}
-        </div>
-    );
-};
-
-export const DrawerBody: FC<DrawerBodyProps> = ({ className, children, ...props }) => {
-    return (
-        <div className={cn(className)} {...props}>
-            {children}
-        </div>
     );
 };

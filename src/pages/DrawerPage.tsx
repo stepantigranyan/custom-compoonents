@@ -1,5 +1,7 @@
-import { Drawer, DrawerHeader, DrawerBody } from '@/ui/drawer/drawer.tsx';
-import { Button } from '@/ui/button/button.tsx';
+import { Drawer } from '@/ui/drawer/Drawer';
+import { DrawerHeader } from '@/ui/drawer/DrawerHeader';
+import { DrawerBody } from '@/ui/drawer/DrawerBody';
+import { Button } from '@/ui/button/Button';
 
 const DrawerPage = () => {
     return (

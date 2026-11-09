@@ -1,13 +1,13 @@
-import type { btn_color, btn_rounded, btn_size, btn_variant } from '@/ui/button/types.ts';
+import type { BtnColor, BtnRounded, BtnSize, BtnVariant } from '@/ui/button/types';
 
-export const btnRounded: Record<btn_rounded, string> = {
+export const btnRounded: Record<BtnRounded, string> = {
     sm: 'rounded-sm',
     md: 'rounded-md',
     lg: 'rounded-lg',
     full: 'rounded-full',
 };
 
-export const btnSize: Record<btn_size, string> = {
+export const btnSize: Record<BtnSize, string> = {
     xs: 'px-2 py-1 text-xs',
     sm: 'px-3 py-2 text-sm',
     md: 'px-4 py-2 text-md',
@@ -15,7 +15,7 @@ export const btnSize: Record<btn_size, string> = {
     xl: 'px-6 py-3 text-xl',
 };
 
-export const btnVariant: Record<btn_variant, Record<btn_color, string>> = {
+export const btnVariant: Record<BtnVariant, Record<BtnColor, string>> = {
     solid: {
         black: 'text-white bg-black hover:bg-gray-800',
         gray: 'text-white bg-gray-600 hover:bg-gray-500',

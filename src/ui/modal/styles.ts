@@ -1,6 +1,6 @@
-import type { modal_mask } from '@/ui/modal/types.ts';
+import type { ModalMask } from '@/ui/modal/types';
 
-export const modalMaskStyles: Record<modal_mask, string> = {
+export const modalMaskStyles: Record<ModalMask, string> = {
     blur: 'backdrop-blur-xs',
     dimmed: '',
     none: '!bg-transparent',

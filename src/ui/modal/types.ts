@@ -1,9 +1,9 @@
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactElement } from 'react';
 
-export type modal_mask = 'blur' | 'dimmed' | 'none';
+export type ModalMask = 'blur' | 'dimmed' | 'none';
 
 export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
-    maskType?: modal_mask;
+    maskType?: ModalMask;
     target?: string;
     maskStyles?: string;
     trigger?: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>;

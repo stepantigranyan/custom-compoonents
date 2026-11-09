@@ -1,14 +1,14 @@
 import type { Dispatch, HTMLAttributes, JSX, SetStateAction } from 'react';
 
-export type collapse_size = 'sm' | 'md' | 'lg';
+export type CollapseSize = 'sm' | 'md' | 'lg';
 
-export type collapse_item_data = {
+export type CollapseItemData = {
     isChecked: boolean;
     changeChecked: Dispatch<SetStateAction<boolean>>;
 };
 
 export interface CollapseProps extends HTMLAttributes<HTMLDivElement> {
-    size?: collapse_size;
+    size?: CollapseSize;
     icon?: JSX.Element;
 }
 

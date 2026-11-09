@@ -1,13 +1,13 @@
-import type { dd_item_model, dd_menu_placement } from '@/ui/dropdown/types.ts';
+import type { DDMenuItemModel, DDMenuPlacement } from '@/ui/dropdown/types';
 
-export const ddItemModel: Record<dd_item_model, string> = {
+export const ddItemModel: Record<DDMenuItemModel, string> = {
     default: 'cursor-pointer bg-transparent hover:hover:bg-gray-200',
     danger: 'cursor-pointer text-red-600 bg-red-200 hover:bg-red-300',
     warning: 'cursor-pointer text-yellow-600 bg-yellow-200 hover:bg-yellow-300',
     disabled: 'cursor-not-allowed pointer-events-none text-gray-400 bg-gray-100 border-gray-400',
 };
 
-export const ddMenuPlacement: Record<dd_menu_placement, string> = {
+export const ddMenuPlacement: Record<DDMenuPlacement, string> = {
     topLeft:
         'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pb-2 bottom-full left-0 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
     top: 'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pb-2 bottom-full left-1/2 -translate-x-1/2 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',

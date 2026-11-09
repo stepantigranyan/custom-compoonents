@@ -1,13 +1,13 @@
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactElement } from 'react';
 
-export type drawer_position = 'top' | 'left' | 'right' | 'bottom';
-export type drawer_mask = 'blur' | 'dimmed' | 'none';
+export type DrawerPosition = 'top' | 'left' | 'right' | 'bottom';
+export type DrawerMask = 'blur' | 'dimmed' | 'none';
 
-export type drawer_close_button_position = 'left' | 'right';
+export type DrawerCloseButtonPosition = 'left' | 'right';
 
 export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
-    position?: drawer_position;
-    maskType?: drawer_mask;
+    position?: DrawerPosition;
+    maskType?: DrawerMask;
     maskStyles?: string;
     trigger?: ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>;
     target?: string;
@@ -17,7 +17,7 @@ export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface DrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
     showCloseButton?: boolean;
-    closeButtonPosition?: drawer_close_button_position;
+    closeButtonPosition?: DrawerCloseButtonPosition;
 }
 
 export interface DrawerBodyProps extends HTMLAttributes<HTMLDivElement> {}

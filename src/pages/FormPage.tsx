@@ -1,6 +1,14 @@
-import { CheckBox, Form, FormItem, Input, Radio, Slider, Switch, Upload } from '@/ui/form/form.tsx';
-import { Button } from '@/ui/button/button.tsx';
 import { useState } from 'react';
+
+import { Form, FormItem } from '@/ui/form/form.tsx';
+import { Input } from '../ui/form/Input';
+import { Radio  } from '../ui/form/Radio';
+import { CheckBox } from '../ui/form/CheckBox';
+import { Switch } from '../ui/form/Switch';
+import { Upload} from '../ui/form/Upload';
+import  { Slider } from '../ui/form/Slider';
+
+import { Button } from '@/ui/button/Button';
 
 const FormPage = () => {
     const [disabledAll, setDisabledAll] = useState<boolean>(false);

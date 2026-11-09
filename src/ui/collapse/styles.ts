@@ -1,6 +1,6 @@
-import type { collapse_size } from '@/ui/collapse/types.ts';
+import type { CollapseSize } from '@/ui/collapse/types';
 
-export const collapseSize: Record<collapse_size, string> = {
+export const collapseSize: Record<CollapseSize, string> = {
     sm: 'text-sm px-3 py-2',
     md: 'text-md px-3 py-3',
     lg: 'text-lg px-3 py-4',

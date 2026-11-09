@@ -1,4 +1,5 @@
 export const labelDefaultStyles = 'flex items-center flex-wrap justify-between gap-2 cursor-pointer select-none';
+export const requiredDefaultStyles = 'text-red-500 mr-1';
 export const formDefaultStyles = 'p-3 border border-solid border-gray-300 rounded-md';
 export const inputDefaultStyles =
     'px-2 py-1 outline-none border border-gray-300 rounded-md focus:border-blue-500 transition-all duration-200 hover:border-blue-500 disabled:bg-slate-100 disabled:border-slate-300 disabled:cursor-not-allowed';
@@ -17,6 +18,6 @@ export const uploadItemDisabledDefaultStyles =
 export const uploadDisabledStyles =
     'bg-slate-100 cursor-not-allowed bg-slate-100 border-slate-300 cursor-not-allowed hover:border-slate-300';
 export const sliderDefaultStyles =
-    'appearance-none w-full rounded-full h-[5px] bg-[linear-gradient(to_right,#3b82f6_0%,#3b82f6_var(--range-progress),#e5e7eb_var(--range-progress),#e5e7eb_100%)] cursor-pointer outline-none thumb:appearance-none thumb:w-4 thumb:h-4 thumb:rounded-full thumb:bg-blue-600 thumb:border-2 thumb:border-white thumb:shadow-[-400px_0_0_400px_#000] hover:thumb:bg-blue-700 active:thumb:bg-blue-800  active:thumb:shadow-[-400px_0_0_400px_#000]';
+    'appearance-none w-full rounded-full h-[5px] bg-[linear-gradient(to_right,#3b82f6_0%,#3b82f6_var(--range-progress),#e5e7eb_var(--range-progress),#e5e7eb_100%)] cursor-pointer outline-none thumb:relative thumb:appearance-none thumb:w-4 thumb:h-4 thumb:rounded-full thumb:bg-blue-600 thumb:border-2 thumb:border-white thumb:shadow-[-400px_0_0_400px_#000] hover:thumb:bg-blue-700 active:thumb:bg-blue-800  active:thumb:shadow-[-400px_0_0_400px_#000]';
 export const sliderDisabledStyles =
     'bg-[linear-gradient(to_right,#ddd,#ddd_var(--range-progress),#e5e7eb_var(--range-progress),#e5e7eb_100%)] thumb:bg-slate-200';
