@@ -1,23 +1,28 @@
 import type { HTMLAttributes, JSX } from 'react';
 
 export type NotificationPosition = 'topLeft' | 'top' | 'topRight' | 'bottomLeft' | 'bottom' | 'bottomRight';
-export type NotificationAddingPosition = 'top' | 'left' | 'bottom' | 'right';
+export type NotificationVariant = 'default' | 'destructive' | 'success';
 
-export interface NotificationGroupProps extends HTMLAttributes<HTMLDivElement> {
+export interface NotificationProps extends HTMLAttributes<HTMLDivElement> {
     position?: NotificationPosition;
-    notifications?: NotificationData[];
+    limit?: number;
+    data?: NotificationData;
     trigger?: JSX.Element;
 }
 
-export interface NotificationProps extends HTMLAttributes<HTMLDivElement> {
+export interface NotificationItemProps extends HTMLAttributes<HTMLDivElement> {
     title?: string;
     description?: string;
-    actions?: HTMLButtonElement[];
-    isFirst?: boolean;
+    variant?: NotificationVariant;
+    openAnimation?: string;
+    closeAnimation?: string;
+    hovered?: boolean;
+    dismiss?: (id: string) => void;
 }
 
 export interface NotificationData {
+    id?: string;
     title?: string;
     description?: string;
-    actions?: HTMLButtonElement[];
+    variant?: NotificationVariant;
 }

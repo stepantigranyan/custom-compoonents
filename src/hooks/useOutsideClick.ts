@@ -1,6 +1,6 @@
 import { type RefObject, useEffect } from 'react';
 
-function useOutsideClick(ref: RefObject<HTMLDivElement | null>, cb: () => void) {
+export const useOutsideClick = (ref: RefObject<HTMLDivElement | null>, cb: () => void) => {
     useEffect(() => {
         function handleClickOutside(event: Event): void {
             const target: HTMLDivElement = event.target as HTMLDivElement;
@@ -14,6 +14,4 @@ function useOutsideClick(ref: RefObject<HTMLDivElement | null>, cb: () => void) 
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [cb, ref]);
-}
-
-export { useOutsideClick };
+};
