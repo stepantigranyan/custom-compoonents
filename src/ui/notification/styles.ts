@@ -44,4 +44,4 @@ export const notificationItemVariant: Record<NotificationVariant, string> = {
 
 export const notificationDefaultStyles = 'fixed max-h-screen w-110 flex flex-col gap-y-2 items-center';
 export const notificationItemDefaultStyles =
-    'relative p-2 w-100 min-h-20 flex flex-col justify-center rounded-md shadow-lg z-50 transition-all duration-3000';
+    'cursor-pointer relative p-2 w-100 min-h-20 flex flex-col justify-center rounded-md shadow-lg z-50 transition-all duration-200 hover:scale-110';

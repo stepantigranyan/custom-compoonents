@@ -41,12 +41,12 @@ export const Slider: FC<InputProps> = ({
                 id={generateId}
                 min={min}
                 max={max}
-                defaultValue={defaultValue}
                 value={v}
                 step={step}
                 disabled={disabled}
                 {...props}
             />
+            <span className="text-center">{v}</span>
         </div>
     );
 };

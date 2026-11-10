@@ -9,7 +9,7 @@ import {
 
 import type { DropDownProps } from '@/ui/dropdown/types';
 
-import { ddMenuPlacement, dropdownDefaultStyles } from '@/ui/dropdown/styles';
+import { ddMenuPlacement, dropdownDefaultStyles, dropdownMenuPositionDefaultStyles } from '@/ui/dropdown/styles';
 
 import { cn } from '@/utils/cn';
 
@@ -27,9 +27,10 @@ export const Dropdown: FC<DropDownProps> = ({ placement = 'bottom', trigger, cla
                   },
               })
             : null;
+
     return (
         <div className="group relative inline-flex items-center justify-center gap-x-2">
-            <div className={cn(placementStyles, className)}>
+            <div className={cn(dropdownMenuPositionDefaultStyles, placementStyles, className)}>
                 <ul className={cn(dropdownDefaultStyles)}>{children}</ul>
             </div>
             {renderedTrigger}

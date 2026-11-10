@@ -9,27 +9,29 @@ export const ddItemModel: Record<DDMenuItemModel, string> = {
 
 export const ddMenuPlacement: Record<DDMenuPlacement, string> = {
     topLeft:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pb-2 bottom-full left-0 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
-    top: 'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pb-2 bottom-full left-1/2 -translate-x-1/2 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
+        'pb-2 bottom-full left-0 translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
+    top: 'pb-2 bottom-full left-1/2 -translate-x-1/2 translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     topRight:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pb-2 bottom-full right-0 translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
+        'pb-2 bottom-full right-0 translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     bottomLeft:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pt-2 top-full left-0 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
-    bottom: 'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pt-2 top-full left-1/2 -translate-x-1/2 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
+        'pt-2 top-full left-0 -translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
+    bottom: 'pt-2 top-full left-1/2 -translate-x-1/2 -translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     bottomRight:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pt-2 top-full right-0 -translate-y-2 group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible',
+        'pt-2 top-full right-0 -translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     leftTop:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pr-2 right-full bottom-0 translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:visible',
-    left: 'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pr-2 right-full top-1/2 -translate-y-1/2 translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:visible',
+        'pr-2 right-full bottom-0 translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
+    left: 'pr-2 right-full top-1/2 -translate-y-1/2 translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     leftBottom:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pr-2 right-full top-0 translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:visible',
+        'pr-2 right-full top-0 translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     rightTop:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pl-2 left-full bottom-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:visible',
-    right: 'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pl-2 left-full top-1/2 -translate-y-1/2 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:visible',
+        'pl-2 left-full bottom-0 -translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
+    right: 'pl-2 left-full top-1/2 -translate-y-1/2 -translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
     rightBottom:
-        'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out pl-2 left-full top-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 group-hover:visible',
+        'pl-2 left-full top-0 -translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
 };
 
 export const dropdownItemDefaultStyles =
     'relative px-2 py-1 inline-flex gap-x-5 shrink-0 items-center px-2 py-1 rounded-md transition-all duration-200';
 export const dropdownDefaultStyles = 'flex flex-col gap-y-1 bg-white w-max shadow-md rounded-md p-1';
+export const dropdownMenuPositionDefaultStyles =
+    'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out';

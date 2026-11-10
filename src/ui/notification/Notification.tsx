@@ -22,11 +22,10 @@ import {
 
 import { useNotification } from '@/hooks/useNotification';
 
-import { X } from 'lucide-react';
-
 import { Teleport } from '@/ui/shared/Teleport';
 
 import { cn } from '@/utils/cn';
+import { X } from 'lucide-react';
 
 import { Button } from '@/ui/button/Button';
 
@@ -44,8 +43,6 @@ export const NotificationItem: FC<NotificationItemProps> = ({
     const [open, setOpen] = useState<boolean>(true);
 
     const timerId = useRef<number | null>(null);
-
-    console.log(timerId.current, 'id');
 
     useEffect(() => {
         if (!open) return;
@@ -126,7 +123,7 @@ export const Notification: FC<NotificationProps> = ({
     position = 'topRight',
     data,
     trigger,
-    limit = 3,
+    limit = 5,
     className,
     ...props
 }) => {

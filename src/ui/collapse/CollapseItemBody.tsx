@@ -16,7 +16,7 @@ export const CollapseItemBody: FC<CollapseItemBodyProps> = ({ className, childre
     return (
         <div className={cn(collapseItemBodyDefaultStyles, showStyle, className)} {...props}>
             <div className="overflow-hidden">
-                <div className={cn(sizeStyle, 'break-all')}>{children}</div>
+                <div className={cn(sizeStyle, 'break-words')}>{children}</div>
             </div>
         </div>
     );

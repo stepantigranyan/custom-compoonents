@@ -36,7 +36,7 @@ const NotificationPage = () => {
                                         description: 'Default notification',
                                         variant: 'default',
                                     }}
-                                    trigger={<Button>Success Message</Button>}
+                                    trigger={<Button>Default</Button>}
                                 />
                             </div>
                         </div>
@@ -143,21 +143,21 @@ const NotificationPage = () => {
                                     />
                                     <Notification
                                         data={{
-                                            title: 'Notification Bottom',
-                                            description: 'Default notification',
-                                            variant: 'success',
-                                        }}
-                                        position="bottomLeft"
-                                        trigger={<Button>Success</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Bottom Right',
-                                            description: 'Default notification',
+                                            title: 'Destructive',
+                                            description: 'Destructive notification',
                                             variant: 'destructive',
                                         }}
                                         position="bottomLeft"
-                                        trigger={<Button>Destructive</Button>}
+                                        trigger={<Button color="red">Destructive</Button>}
+                                    />
+                                    <Notification
+                                        data={{
+                                            title: 'Success',
+                                            description: 'Success notification',
+                                            variant: 'success',
+                                        }}
+                                        position="bottomLeft"
+                                        trigger={<Button color="green">Success</Button>}
                                     />
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 import type { Dispatch, HTMLAttributes, JSX, SetStateAction } from 'react';
 
 export type CollapseSize = 'sm' | 'md' | 'lg';
+export type CollapseVariant = 'default' | 'accordion';
 
 export type CollapseItemData = {
     isChecked: boolean;
@@ -10,6 +11,11 @@ export type CollapseItemData = {
 export interface CollapseProps extends HTMLAttributes<HTMLDivElement> {
     size?: CollapseSize;
     icon?: JSX.Element;
+}
+
+export interface CollapseContextData {
+    size: CollapseSize;
+    icon: JSX.Element;
 }
 
 export interface CollapseItemProps extends HTMLAttributes<HTMLDivElement> {

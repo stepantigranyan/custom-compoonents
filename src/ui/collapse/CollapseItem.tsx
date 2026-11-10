@@ -6,7 +6,7 @@ import { cn } from '@/utils/cn';
 
 export const CollapseItemContext = createContext<CollapseItemData | null>(null);
 
-export const CollapseItem: FC<CollapseItemProps> = ({ children, open = false }) => {
+export const CollapseItem: FC<CollapseItemProps> = ({ children, open = false, className, ...props }) => {
     const [checked, setChecked] = useState<boolean>(open);
     const data: CollapseItemData = {
         isChecked: checked,
@@ -15,7 +15,9 @@ export const CollapseItem: FC<CollapseItemProps> = ({ children, open = false }) 
 
     return (
         <CollapseItemContext.Provider value={data}>
-            <div className={cn(collapseItemDefaultStyles)}>{children}</div>
+            <div className={cn(collapseItemDefaultStyles, className)} {...props}>
+                {children}
+            </div>
         </CollapseItemContext.Provider>
     );
 };

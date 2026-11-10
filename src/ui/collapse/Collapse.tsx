@@ -1,13 +1,13 @@
 import { type FC, createContext } from 'react';
 
-import type { CollapseProps } from '@/ui/collapse/types';
+import type { CollapseContextData, CollapseProps } from '@/ui/collapse/types';
 
 import { collapseDefaultStyles } from '@/ui/collapse/styles';
 
 import { ChevronRight } from 'lucide-react';
 import { cn } from '@/utils/cn';
 
-export const CollapseContext = createContext<CollapseProps | null>(null);
+export const CollapseContext = createContext<CollapseContextData | null>(null);
 
 export const Collapse: FC<CollapseProps> = ({
     size = 'md',

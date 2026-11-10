@@ -9,14 +9,15 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     model = 'default',
     className,
     children,
+    ...props
 }) => {
     const modelStyles = ddItemModel[model];
 
     return (
-        <li className={cn(dropdownItemDefaultStyles, modelStyles, className)}>
-            {iconPlacement === 'left' && icon}
+        <li className={cn(dropdownItemDefaultStyles, modelStyles, className)} {...props}>
+            {icon && iconPlacement === 'left' && icon}
             {children}
-            {iconPlacement === 'right' && icon}
+            {icon && iconPlacement === 'right' && icon}
         </li>
     );
 };

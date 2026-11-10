@@ -10,12 +10,9 @@ import {
 import { CollapseContext } from '@/ui/collapse/Collapse';
 import { CollapseItemContext } from '@/ui/collapse/CollapseItem';
 
-import { v4 as uuidv4 } from 'uuid';
-
 import { cn } from '@/utils/cn';
 
 export const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ id, className, children, ...props }) => {
-    const generatedId = id || uuidv4();
     const { size, icon } = useContext(CollapseContext);
     const { isChecked, changeChecked } = useContext(CollapseItemContext);
 
@@ -26,17 +23,9 @@ export const CollapseItemHeader: FC<CollapseItemHeaderProps> = ({ id, className,
         <div
             className={cn(collapseItemHeaderDefaultStyles, sizeStyle, className)}
             onClick={() => changeChecked((prev) => !prev)}
+            {...props}
         >
-            <input
-                id={generatedId}
-                type="checkbox"
-                className="hidden"
-                onClick={(event) => event.stopPropagation()}
-                {...props}
-            />
-            <label htmlFor={generatedId} className={cn(collapseItemHeaderLabelDefaultStyles, rotateStyle)}>
-                <span>{icon}</span>
-            </label>
+            <span className={cn(collapseItemHeaderLabelDefaultStyles, rotateStyle)}>{icon}</span>
             <h4>{children}</h4>
         </div>
     );
