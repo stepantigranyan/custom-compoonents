@@ -40,6 +40,7 @@ export const Notification: FC<NotificationProps> = ({ notification, position, di
         return () => {
             clearTimeout(timerId.current);
         };
+
     }, [hovered]);
 
     let animationStyles: string;

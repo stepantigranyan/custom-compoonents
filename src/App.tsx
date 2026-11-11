@@ -53,7 +53,7 @@ const router = createBrowserRouter([
             {
                 path: 'notification',
                 element: (
-                    <NotificationProvider position="topLeft">
+                    <NotificationProvider>
                         <NotificationPage />
                     </NotificationProvider>
                 ),

@@ -1,4 +1,4 @@
-import {createContext, type FC, useCallback, useEffect, useState} from 'react';
+import {createContext, type FC, useCallback, useState} from 'react';
 import type {
     NotificationCreationData,
     NotificationData,
@@ -63,7 +63,7 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
         <NotificationContext.Provider value={{ notify, dismiss, remove }}>
             <NotificationContainer
                 position={position}
-                notifications={notifications}
+                notifications={notifications.filter((i) => i.options.position === position)}
                 dismiss={dismiss}
                 className={className}
                 {...props}

@@ -19,7 +19,6 @@ export interface NotificationProps {
 }
 
 export interface NotificationProviderProps extends HTMLAttributes<HTMLDivElement> {
-    position: NotificationPosition;
 }
 
 export interface NotificationCreationData {

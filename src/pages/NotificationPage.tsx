@@ -40,8 +40,8 @@ const NotificationPage = () => {
                                                 message: 'Default Notification',
                                             },
                                             options: {
-                                                position: 'bottomRight'
-                                            }
+                                                position: 'bottomLeft',
+                                            },
                                         });
                                     }}
                                 >
@@ -55,9 +55,14 @@ const NotificationPage = () => {
                                 <Button
                                     onClick={() => {
                                         notify({
-                                            title: 'Default',
-                                            message: 'Default Notification',
-                                        }, { variant: 'default' });
+                                            data: {
+                                                title: 'Default',
+                                                message: 'Default Notification',
+                                            },
+                                            options: {
+                                                variant: 'default',
+                                            },
+                                        });
                                     }}
                                 >
                                     Default
@@ -65,15 +70,15 @@ const NotificationPage = () => {
                                 <Button
                                     color="green"
                                     onClick={() => {
-                                        notify(
-                                            {
+                                        notify({
+                                            data: {
                                                 title: 'Success',
                                                 message: 'Success Notification',
                                             },
-                                            {
+                                            options: {
                                                 variant: 'success',
-                                            }
-                                        );
+                                            },
+                                        });
                                     }}
                                 >
                                     Success
@@ -81,15 +86,15 @@ const NotificationPage = () => {
                                 <Button
                                     color="red"
                                     onClick={() => {
-                                        notify(
-                                            {
+                                        notify({
+                                            data: {
                                                 title: 'Destructive',
                                                 message: 'Destructive Notification',
                                             },
-                                            {
+                                            options: {
                                                 variant: 'destructive',
-                                            }
-                                        );
+                                            },
+                                        });
                                     }}
                                 >
                                     Destructive
@@ -104,26 +109,31 @@ const NotificationPage = () => {
                                 <Button
                                     onClick={() => {
                                         const id = notify({
-                                            title: 'Default',
-                                            message: 'Default Notification',
-                                            actions: [
-                                                {
-                                                    title: 'Delete',
-                                                    color: 'red',
-                                                    variant: 'filled',
-                                                    onClick: () => {
-                                                        remove(id);
+                                            data: {
+                                                title: 'Notification With Some Actions',
+                                                message:
+                                                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid at aut molestiae odit voluptates. Corporis dolores exercitationem quaerat sapiente.',
+                                            },
+                                            options: {
+                                                actions: [
+                                                    {
+                                                        title: 'Delete',
+                                                        color: 'red',
+                                                        variant: 'filled',
+                                                        onClick: () => {
+                                                            remove(id);
+                                                        },
                                                     },
-                                                },
-                                                {
-                                                    title: 'Submit',
-                                                    color: 'blue',
-                                                    variant: 'solid',
-                                                    onClick: () => {
-                                                        dismiss(id);
+                                                    {
+                                                        title: 'Submit',
+                                                        color: 'blue',
+                                                        variant: 'solid',
+                                                        onClick: () => {
+                                                            dismiss(id);
+                                                        },
                                                     },
-                                                },
-                                            ],
+                                                ],
+                                            },
                                         });
                                     }}
                                 >
@@ -136,19 +146,124 @@ const NotificationPage = () => {
                             <div className="flex items-center gap-x-2">
                                 <Button
                                     onClick={() => {
-                                        notify(
-                                            {
-                                                title: 'Default',
-                                                message: 'Default Notification',
+                                        notify({
+                                            data: {
+                                                title: 'Notification',
+                                                message: 'This notification will disappear after 6 seconds',
                                             },
-                                            {
-                                                duration: 5000,
-                                            }
-                                        );
+                                            options: {
+                                                duration: 6000,
+                                            },
+                                        });
                                     }}
                                 >
                                     Notification
                                 </Button>
+                            </div>
+                        </div>
+                        <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
+                            <p className="text-lg">Change notification adding position.</p>
+                            <div className="flex flex-col items-center gap-y-2">
+                                <div className="flex gap-x-2 items-center justify-center">
+                                    <Button
+                                        onClick={() => {
+                                            notify({
+                                                data: {
+                                                    title: 'Notification',
+                                                    message:
+                                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, non.',
+                                                },
+                                                options: {
+                                                    position: 'topLeft',
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Top Left
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            notify({
+                                                data: {
+                                                    title: 'Notification',
+                                                    message:
+                                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, non.',
+                                                },
+                                                options: {
+                                                    position: 'top',
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Top
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            notify({
+                                                data: {
+                                                    title: 'Notification',
+                                                    message:
+                                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, non.',
+                                                },
+                                                options: {
+                                                    position: 'topRight',
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Top Right
+                                    </Button>
+                                </div>
+                                <div className="flex items-center gap-x-2 justify-center">
+                                    <Button
+                                        onClick={() => {
+                                            notify({
+                                                data: {
+                                                    title: 'Notification',
+                                                    message:
+                                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, non.',
+                                                },
+                                                options: {
+                                                    position: 'bottomLeft',
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Bottom Left
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            notify({
+                                                data: {
+                                                    title: 'Notification',
+                                                    message:
+                                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, non.',
+                                                },
+                                                options: {
+                                                    position: 'bottom',
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Bottom
+                                    </Button>
+                                    <Button
+                                        onClick={() => {
+                                            notify({
+                                                data: {
+                                                    title: 'Notification',
+                                                    message:
+                                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, non.',
+                                                },
+                                                options: {
+                                                    position: 'bottomRight',
+                                                },
+                                            });
+                                        }}
+                                    >
+                                        Bottom Right
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
