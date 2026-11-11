@@ -7,10 +7,10 @@ import {
     cloneElement,
     useContext,
 } from 'react';
-import type { ModalActionsProps } from '@/ui/modal/types.ts';
-import { modalActionsDefaultStyles } from '@/ui/modal/styles.ts';
+import type { ModalActionsProps } from '@/ui/modal/types';
+import { modalActionsDefaultStyles } from '@/ui/modal/styles';
 
-import { ModalContext } from '@/ui/modal/Modal.tsx';
+import { ModalContext } from '@/ui/modal/Modal';
 
 import { cn } from '@/utils/cn';
 

@@ -44,6 +44,7 @@ export const Drawer: FC<DrawerProps> = ({
     ...props
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
+    // TODO
     const [open, setOpen] = useState<boolean>(false);
     const [visible, setVisible] = useState<boolean>(false);
 
@@ -76,6 +77,7 @@ export const Drawer: FC<DrawerProps> = ({
 
     useOutsideClick(wrapperRef, toggle);
 
+    // TODO: check cloning
     const renderedTrigger =
         trigger && isValidElement(trigger)
             ? cloneElement(trigger as ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>, {

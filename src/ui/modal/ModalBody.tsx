@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { ModalBodyProps } from '@/ui/modal/types.ts';
-import { modalBodyDefaultStyles } from '@/ui/modal/styles.ts';
+import type { ModalBodyProps } from '@/ui/modal/types';
+import { modalBodyDefaultStyles } from '@/ui/modal/styles';
 
 import { cn } from '@/utils/cn';
 

@@ -22,7 +22,7 @@ export const TabHeader: FC<TabHeaderProps> = ({
     className,
     ...props
 }) => {
-    const { data, page, setPage } = useContext(TabContext);
+    const { data, activeTab, setActiveTab } = useContext(TabContext);
 
     const directionStyle = tabDirection[direction][contextPosition];
     const sizeStyle = tabSize[size];
@@ -36,10 +36,10 @@ export const TabHeader: FC<TabHeaderProps> = ({
                     className={cn(
                         tabItemDefaultStyles,
                         sizeStyle,
-                        index === page && activeDefault,
-                        index === page && activeStyle
+                        index === activeTab && activeDefault,
+                        index === activeTab && activeStyle
                     )}
-                    onClick={() => setPage(index)}
+                    onClick={() => setActiveTab(index)}
                 >
                     {item.icon}
                     {item.title}

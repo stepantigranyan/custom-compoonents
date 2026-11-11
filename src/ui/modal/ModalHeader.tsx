@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import type { ModalHeaderProps } from '@/ui/modal/types';
-import { modalHeaderDefaultStyles } from '@/ui/modal/styles.ts';
+import { modalHeaderDefaultStyles } from '@/ui/modal/styles';
 
 import { cn } from '@/utils/cn';
 

@@ -6,17 +6,17 @@ import { tabPosition as tp } from '@/ui/tab/styles';
 
 export const TabContext = createContext<{
     data: TabItemProps[];
-    page: number;
-    setPage: Dispatch<SetStateAction<number>>;
+    activeTab: number;
+    setActiveTab: Dispatch<SetStateAction<number>>;
 }>(null);
 
-export const Tab: FC<TabProps> = ({ data = [], position = 'top', currentPage = 1, className, children, ...props }) => {
-    const [page, setPage] = useState<number>(currentPage - 1);
+export const Tab: FC<TabProps> = ({ data = [], position = 'top', defaultActiveTab = 0, className, children, ...props }) => {
+    const [activeTab, setActiveTab] = useState<number>(defaultActiveTab);
 
     const positionStyle = tp[position];
 
     return (
-        <TabContext.Provider value={{ data, page, setPage }} {...props}>
+        <TabContext.Provider value={{ data, activeTab, setActiveTab }} {...props}>
             <div className={positionStyle}>{children}</div>
         </TabContext.Provider>
     );

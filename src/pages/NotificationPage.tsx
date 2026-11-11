@@ -1,7 +1,9 @@
-import { Notification } from '@/ui/notification/Notification.tsx';
 import { Button } from '@/ui/button/Button.tsx';
+import { useNotification } from '@/hooks/useNotification.ts';
 
 const NotificationPage = () => {
+    const { notify, dismiss, remove } = useNotification();
+
     return (
         <div className="flex flex-col gap-y-20">
             <div className="flex flex-col gap-y-5">
@@ -30,136 +32,123 @@ const NotificationPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">Basic example</p>
                             <div className="flex items-center gap-x-2">
-                                <Notification
-                                    data={{
-                                        title: 'Notification',
-                                        description: 'Default notification',
-                                        variant: 'default',
+                                <Button
+                                    onClick={() => {
+                                        notify({
+                                            data: {
+                                                title: 'Default',
+                                                message: 'Default Notification',
+                                            },
+                                            options: {
+                                                position: 'bottomRight'
+                                            }
+                                        });
                                     }}
-                                    trigger={<Button>Default</Button>}
-                                />
+                                >
+                                    Add Notification
+                                </Button>
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">
-                                Stack configuration, enabled by default. Notifications will be stacked when the amount
-                                is over threshold. Up to 3 notifications are shown in the collapsed stack.
-                            </p>
+                            <p className="text-lg">Variants</p>
                             <div className="flex items-center gap-x-2">
-                                <Notification
-                                    limit={10}
-                                    data={{
-                                        title: 'Notification',
-                                        description: 'Default notification',
-                                        variant: 'default',
+                                <Button
+                                    onClick={() => {
+                                        notify({
+                                            title: 'Default',
+                                            message: 'Default Notification',
+                                        }, { variant: 'default' });
                                     }}
-                                    trigger={<Button>Limit 10</Button>}
-                                />
+                                >
+                                    Default
+                                </Button>
+                                <Button
+                                    color="green"
+                                    onClick={() => {
+                                        notify(
+                                            {
+                                                title: 'Success',
+                                                message: 'Success Notification',
+                                            },
+                                            {
+                                                variant: 'success',
+                                            }
+                                        );
+                                    }}
+                                >
+                                    Success
+                                </Button>
+                                <Button
+                                    color="red"
+                                    onClick={() => {
+                                        notify(
+                                            {
+                                                title: 'Destructive',
+                                                message: 'Destructive Notification',
+                                            },
+                                            {
+                                                variant: 'destructive',
+                                            }
+                                        );
+                                    }}
+                                >
+                                    Destructive
+                                </Button>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col gap-y-5">
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">
-                                A notification box can appear from the top bottom topLeft topRight bottomLeft or
-                                bottomRight of the viewport via position.
-                            </p>
-                            <div className="flex flex-col items-center gap-y-2">
-                                <div className="flex items-center justify-center gap-x-2">
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Top Left',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="topLeft"
-                                        trigger={<Button>Top Left</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Top',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="top"
-                                        trigger={<Button>Top</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Top Right',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="topRight"
-                                        trigger={<Button>Top Right</Button>}
-                                    />
-                                </div>
-                                <div className="flex items-center justify-center gap-x-2">
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Bottom Left',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="bottomLeft"
-                                        trigger={<Button>Bottom Left</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Bottom',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="bottom"
-                                        trigger={<Button>Bottom</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Bottom Right',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="bottomRight"
-                                        trigger={<Button>Bottom Right</Button>}
-                                    />
-                                </div>
+                            <p className="text-lg">Add actions</p>
+                            <div className="flex items-center gap-x-2">
+                                <Button
+                                    onClick={() => {
+                                        const id = notify({
+                                            title: 'Default',
+                                            message: 'Default Notification',
+                                            actions: [
+                                                {
+                                                    title: 'Delete',
+                                                    color: 'red',
+                                                    variant: 'filled',
+                                                    onClick: () => {
+                                                        remove(id);
+                                                    },
+                                                },
+                                                {
+                                                    title: 'Submit',
+                                                    color: 'blue',
+                                                    variant: 'solid',
+                                                    onClick: () => {
+                                                        dismiss(id);
+                                                    },
+                                                },
+                                            ],
+                                        });
+                                    }}
+                                >
+                                    Notification with actions
+                                </Button>
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">
-                                A notification box can appear from the top bottom topLeft topRight bottomLeft or
-                                bottomRight of the viewport via position.
-                            </p>
-                            <div className="flex flex-col items-center gap-y-2">
-                                <div className="flex items-center justify-center gap-x-2">
-                                    <Notification
-                                        data={{
-                                            title: 'Notification Bottom Left',
-                                            description: 'Default notification',
-                                            variant: 'default',
-                                        }}
-                                        position="bottomLeft"
-                                        trigger={<Button>Default</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Destructive',
-                                            description: 'Destructive notification',
-                                            variant: 'destructive',
-                                        }}
-                                        position="bottomLeft"
-                                        trigger={<Button color="red">Destructive</Button>}
-                                    />
-                                    <Notification
-                                        data={{
-                                            title: 'Success',
-                                            description: 'Success notification',
-                                            variant: 'success',
-                                        }}
-                                        position="bottomLeft"
-                                        trigger={<Button color="green">Success</Button>}
-                                    />
-                                </div>
+                            <p className="text-lg">Change notification existing duration.</p>
+                            <div className="flex items-center gap-x-2">
+                                <Button
+                                    onClick={() => {
+                                        notify(
+                                            {
+                                                title: 'Default',
+                                                message: 'Default Notification',
+                                            },
+                                            {
+                                                duration: 5000,
+                                            }
+                                        );
+                                    }}
+                                >
+                                    Notification
+                                </Button>
                             </div>
                         </div>
                     </div>

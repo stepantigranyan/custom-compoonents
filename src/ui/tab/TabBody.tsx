@@ -6,10 +6,10 @@ import { TabContext } from '@/ui/tab/Tab';
 import { cn } from '@/utils/cn';
 
 export const TabBody: FC<TabPageProps> = ({ className, children, ...props }) => {
-    const { data, page } = useContext(TabContext);
+    const { data, activeTab } = useContext(TabContext);
     return (
         <div className={cn(tabPageDefaultStyles, className)} {...props}>
-            {data[page].children}
+            {data[activeTab].children}
         </div>
     );
 };

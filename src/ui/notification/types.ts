@@ -1,28 +1,47 @@
-import type { HTMLAttributes, JSX } from 'react';
+import type { HTMLAttributes } from 'react';
+import type { BtnColor, BtnVariant } from '@/ui/button/types.ts';
 
 export type NotificationPosition = 'topLeft' | 'top' | 'topRight' | 'bottomLeft' | 'bottom' | 'bottomRight';
 export type NotificationVariant = 'default' | 'destructive' | 'success';
+export type NotificationStatus = 'entering' | 'exiting';
 
-export interface NotificationProps extends HTMLAttributes<HTMLDivElement> {
-    position?: NotificationPosition;
-    limit?: number;
-    data?: NotificationData;
-    trigger?: JSX.Element;
+export interface NotificationContainerProps extends HTMLAttributes<HTMLDivElement> {
+    notifications: NotificationData[];
+    position: NotificationPosition;
+    dismiss: (id: string) => void;
 }
 
-export interface NotificationItemProps extends HTMLAttributes<HTMLDivElement> {
-    title?: string;
-    description?: string;
-    variant?: NotificationVariant;
-    openAnimation?: string;
-    closeAnimation?: string;
-    hovered?: boolean;
-    dismiss?: (id: string) => void;
+export interface NotificationProps {
+    position: NotificationPosition;
+    notification: NotificationData;
+    dismiss: (id: string) => void;
+    hovered: boolean;
+}
+
+export interface NotificationProviderProps extends HTMLAttributes<HTMLDivElement> {
+    position: NotificationPosition;
+}
+
+export interface NotificationCreationData {
+    title: string;
+    message: string;
 }
 
 export interface NotificationData {
-    id?: string;
-    title?: string;
-    description?: string;
+    id: string;
+    data: NotificationCreationData;
+    options?: NotificationOptions;
+    status: NotificationStatus;
+}
+
+export interface NotificationOptions {
+    position?: NotificationPosition;
     variant?: NotificationVariant;
+    duration?: number;
+    actions?: {
+        title: string;
+        onClick: () => void;
+        color: BtnColor;
+        variant: BtnVariant;
+    }[];
 }

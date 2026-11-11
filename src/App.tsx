@@ -1,16 +1,17 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router';
 
 import Layout from './Layout';
-import ButtonPage from './pages/ButtonPage.tsx';
-import SpinnerPage from './pages/SpinnerPage.tsx';
-import CollapsePage from './pages/CollapsePage.tsx';
+import ButtonPage from './pages/ButtonPage';
+import SpinnerPage from './pages/SpinnerPage';
+import CollapsePage from './pages/CollapsePage';
 import EmptyPage from './pages/EmptyPage';
-import DrawerPage from '@/pages/DrawerPage.tsx';
-import ModalPage from '@/pages/ModalPage.tsx';
-import TabPage from '@/pages/TabPage.tsx';
-import DropdownPage from '@/pages/DropdownPage.tsx';
-import FormPage from '@/pages/FormPage.tsx';
-import NotificationPage from '@/pages/NotificationPage.tsx';
+import DrawerPage from '@/pages/DrawerPage';
+import ModalPage from '@/pages/ModalPage';
+import TabPage from '@/pages/TabPage';
+import DropdownPage from '@/pages/DropdownPage';
+import FormPage from '@/pages/FormPage';
+import NotificationPage from '@/pages/NotificationPage';
+import { NotificationProvider } from '@/ui/notification/NotificationProvider.tsx';
 
 const router = createBrowserRouter([
     {
@@ -51,7 +52,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'notification',
-                element: <NotificationPage />,
+                element: (
+                    <NotificationProvider position="topLeft">
+                        <NotificationPage />
+                    </NotificationProvider>
+                ),
             },
             {
                 path: 'dropdown',

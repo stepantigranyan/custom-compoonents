@@ -148,36 +148,44 @@
 
 @keyframes openLeftNtfc {
     from {
+        opacity: 0.5;
         transform: translateX(-100%);
     }
     to {
+        opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes closeLeftNtfc {
     from {
+        opacity: 1;
         transform: translateX(0);
     }
     to {
+        opacity: 0.5;
         transform: translateX(-100%);
     }
 }
 
 @keyframes openRightNtfc {
     from {
+        opacity: 0.5;
         transform: translateX(100%);
     }
     to {
+        opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes closeRightNtfc {
     from {
+        opacity: 1;
         transform: translateX(0);
     }
     to {
+        opacity: 0.5;
         transform: translateX(100%);
     }
 }

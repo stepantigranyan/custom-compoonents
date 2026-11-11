@@ -1,6 +1,6 @@
-import type { NotificationPosition, NotificationVariant } from '@/ui/notification/types.ts';
+import type { NotificationPosition, NotificationVariant } from '@/ui/notification/types';
 
-export const notificationPosition: Record<NotificationPosition, string> = {
+export const notificationContainerPosition: Record<NotificationPosition, string> = {
     topLeft: 'left-5 top-5 flex-col',
     top: 'left-1/2 top-5 -translate-x-1/2 flex-col',
     topRight: 'right-5 top-5 flex-col',
@@ -9,7 +9,7 @@ export const notificationPosition: Record<NotificationPosition, string> = {
     bottomRight: 'right-5 bottom-5 flex-col-reverse',
 };
 
-export const notificationItemAddingPosition: Record<NotificationPosition, { open: string; close: string }> = {
+export const notificationAddingPosition: Record<NotificationPosition, { open: string; close: string }> = {
     topLeft: {
         open: 'animate-[openLeftNtfc_0.3s_ease-in-out_forwards]',
         close: 'animate-[closeLeftNtfc_0.3s_ease-in-out_forwards]',
@@ -36,12 +36,12 @@ export const notificationItemAddingPosition: Record<NotificationPosition, { open
     },
 };
 
-export const notificationItemVariant: Record<NotificationVariant, string> = {
-    default: 'bg-white text-foreground border border-solid border-gray-300',
-    destructive: 'bg-white border border-solid border-red-300 text-red-500',
-    success: 'border-emerald-300 bg-white text-emerald-900',
+export const notificationVariant: Record<NotificationVariant, string> = {
+    default: 'bg-white border border-solid border-gray-300',
+    destructive: 'bg-red-100 border border-solid border-red-300',
+    success: 'bg-emerald-100 border border-solid border-emerald-300',
 };
 
-export const notificationDefaultStyles = 'fixed max-h-screen w-110 flex flex-col gap-y-2 items-center';
-export const notificationItemDefaultStyles =
-    'cursor-pointer relative p-2 w-100 min-h-20 flex flex-col justify-center rounded-md shadow-lg z-50 transition-all duration-200 hover:scale-110';
+export const notificationContainerDefaultStyles = 'fixed max-h-screen overglow-x-visible overflow-y-auto w-110 flex flex-col gap-y-2 items-center scrollbar-none';
+export const notificationDefaultStyles =
+    'cursor-pointer relative p-2 w-100 min-h-25 flex flex-col justify-center rounded-md shadow-lg z-50';

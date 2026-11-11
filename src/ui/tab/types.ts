@@ -14,7 +14,7 @@ export interface TabItemProps {
 
 export interface TabProps extends HTMLAttributes<HTMLDivElement> {
     data?: TabItemProps[];
-    currentPage?: number;
+    defaultActiveTab?: number;
     position?: TabPosition;
 }
 
