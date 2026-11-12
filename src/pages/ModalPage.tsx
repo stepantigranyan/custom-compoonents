@@ -1,6 +1,7 @@
 import { Modal } from '@/ui/modal/Modal';
 import { ModalHeader } from '@/ui/modal/ModalHeader';
 import { ModalBody } from '@/ui/modal/ModalBody';
+import { ModalTrigger } from '@/ui/modal/ModalTrigger';
 import { ModalActions } from '@/ui/modal/ModalActions';
 import { Button } from '@/ui/button/Button';
 
@@ -26,7 +27,7 @@ const SpinnerPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">Simplest Usage.</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Modal trigger={<Button>Open</Button>}>
+                                <Modal trigger={<ModalTrigger>Open</ModalTrigger>}>
                                     <ModalHeader>
                                         <h2 className="text-lg font-bold">Helo!!!</h2>
                                     </ModalHeader>
@@ -51,7 +52,7 @@ const SpinnerPage = () => {
                                         className="relative border border-solid border-gray-300 rounded-md overflow-hidden w-full h-100 flex flex-col items-center justify-center gap-y-3"
                                     >
                                         <h2 className="text-lg">Rendered inside component.</h2>
-                                        <Modal target="modal-inside-render" trigger={<Button>Open</Button>}>
+                                        <Modal target="modal-inside-render" trigger={<ModalTrigger>Open</ModalTrigger>}>
                                             <ModalHeader>
                                                 <h2 className="text-lg">Inside Component</h2>
                                             </ModalHeader>
@@ -72,7 +73,7 @@ const SpinnerPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">Mask effect.</p>
                             <div className="flex items-center gap-3">
-                                <Modal maskType="blur" trigger={<Button>Blur</Button>}>
+                                <Modal maskType="blur" trigger={<ModalTrigger>Blur</ModalTrigger>}>
                                     <ModalHeader>
                                         <h2 className="text-lg">Hello</h2>
                                     </ModalHeader>
@@ -84,7 +85,7 @@ const SpinnerPage = () => {
                                         </p>
                                     </ModalBody>
                                 </Modal>
-                                <Modal maskType="dimmed" trigger={<Button>Dimmed</Button>}>
+                                <Modal maskType="dimmed" trigger={<ModalTrigger>Dimmed</ModalTrigger>}>
                                     <ModalHeader>
                                         <h2 className="text-lg">Hello</h2>
                                     </ModalHeader>
@@ -96,7 +97,7 @@ const SpinnerPage = () => {
                                         </p>
                                     </ModalBody>
                                 </Modal>
-                                <Modal maskType="none" trigger={<Button>None</Button>}>
+                                <Modal maskType="none" trigger={<ModalTrigger>None</ModalTrigger>}>
                                     <ModalHeader>
                                         <h2 className="text-lg">Hello</h2>
                                     </ModalHeader>
@@ -113,8 +114,8 @@ const SpinnerPage = () => {
                         <div className="flex flex-col gap-y-5">
                             <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                                 <p className="text-lg">You can also add action buttons.</p>
-                                <div className="flex flex-col items-center gap-3">
-                                    <Modal trigger={<Button>Open</Button>}>
+                                <div className="flex">
+                                    <Modal trigger={<ModalTrigger>Open</ModalTrigger>}>
                                         <ModalHeader>
                                             <h2 className="text-lg font-bold">Helo!!!</h2>
                                         </ModalHeader>

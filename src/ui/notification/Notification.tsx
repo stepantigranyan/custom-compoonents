@@ -1,4 +1,4 @@
-import {type FC, useLayoutEffect, useRef, useState} from 'react';
+import { type FC, useLayoutEffect, useRef, useState } from 'react';
 import type { NotificationProps } from '@/ui/notification/types';
 
 import { notificationDefaultStyles, notificationAddingPosition, notificationVariant } from '@/ui/notification/styles';

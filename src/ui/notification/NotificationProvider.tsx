@@ -1,4 +1,4 @@
-import {createContext, type FC, useCallback, useRef, useState} from 'react';
+import { createContext, type FC, useCallback, useRef, useState } from 'react';
 import type {
     NotificationCreationData,
     NotificationData,
@@ -17,7 +17,7 @@ export const NotificationContext = createContext<{
         position: NotificationPosition;
     };
     remove: (id: string, position: NotificationPosition) => void;
-    dismiss: (id: string, position: NotificationPosition) => void
+    dismiss: (id: string, position: NotificationPosition) => void;
 }>(null);
 
 export const NotificationProvider: FC<NotificationProviderProps> = ({ className, children, ...props }) => {
@@ -58,7 +58,7 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
 
             setNotifications((prev) => ({
                 ...prev,
-                [positionRef.current]: [notification, ...prev[positionRef.current]],
+                [positionRef.current]: [...prev[positionRef.current], notification],
             }));
 
             return { id, position: notification.options.position };
@@ -80,15 +80,9 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
         }));
     }, []);
 
-
     return (
         <NotificationContext.Provider value={{ notify, dismiss, remove }}>
-            <NotificationContainer
-                notifications={notifications}
-                dismiss={dismiss}
-                className={className}
-                {...props}
-            />
+            <NotificationContainer notifications={notifications} dismiss={dismiss} className={className} {...props} />
             {children}
         </NotificationContext.Provider>
     );

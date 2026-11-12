@@ -1,15 +1,4 @@
-import {
-    type ButtonHTMLAttributes,
-    type FC,
-    type HTMLAttributes,
-    type ReactElement,
-    useEffect,
-    useRef,
-    useState,
-    isValidElement,
-    createContext,
-    cloneElement,
-} from 'react';
+import { type FC, useEffect, useRef, useState, createContext } from 'react';
 
 import type { ModalProps } from '@/ui/modal/types';
 
@@ -69,22 +58,9 @@ export const Modal: FC<ModalProps> = ({
 
     useOutsideClick(wrapperRef, toggle);
 
-    const renderedTrigger =
-        trigger && isValidElement(trigger)
-            ? cloneElement(trigger as ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>, {
-                  onClick: (e) => {
-                      const originalOnClick = (trigger.props as HTMLAttributes<HTMLButtonElement>).onClick;
-                      if (originalOnClick) {
-                          originalOnClick(e);
-                      }
-
-                      toggle();
-                  },
-              })
-            : null;
-
     return (
         <ModalContext.Provider value={{ close: toggle }}>
+            {trigger}
             {visible && (
                 <Teleport target={target}>
                     <div
@@ -108,8 +84,6 @@ export const Modal: FC<ModalProps> = ({
                     </div>
                 </Teleport>
             )}
-
-            {renderedTrigger}
         </ModalContext.Provider>
     );
 };

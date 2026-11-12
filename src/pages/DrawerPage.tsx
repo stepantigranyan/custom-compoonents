@@ -1,7 +1,7 @@
 import { Drawer } from '@/ui/drawer/Drawer';
 import { DrawerHeader } from '@/ui/drawer/DrawerHeader';
 import { DrawerBody } from '@/ui/drawer/DrawerBody';
-import { Button } from '@/ui/button/Button';
+import { DrawerTrigger } from '@/ui/drawer/DrawerTrigger';
 
 const DrawerPage = () => {
     return (
@@ -35,7 +35,7 @@ const DrawerPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">Basic Drawer</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer position="right" trigger={<Button>Open</Button>}>
+                                <Drawer position="right" trigger={<DrawerTrigger>Open Drawer</DrawerTrigger>}>
                                     <DrawerHeader closeButtonPosition="right">
                                         <h2 className="text-lg">Basic Drawer</h2>
                                     </DrawerHeader>
@@ -56,7 +56,11 @@ const DrawerPage = () => {
                                 the edge.
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer position="left" resize={true} trigger={<Button>Resize Drawer</Button>}>
+                                <Drawer
+                                    position="left"
+                                    resize={true}
+                                    trigger={<DrawerTrigger>Resizable Drawer</DrawerTrigger>}
+                                >
                                     <DrawerHeader>
                                         <h2 className="text-lg">Resizable Drawer</h2>
                                     </DrawerHeader>
@@ -66,17 +70,21 @@ const DrawerPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">Mask effect.</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer position="left" maskType="blur" trigger={<Button>Blur</Button>}>
+                                <Drawer position="left" maskType="blur" trigger={<DrawerTrigger>Blur</DrawerTrigger>}>
                                     <DrawerHeader>
                                         <h2 className="text-lg">Blur mask</h2>
                                     </DrawerHeader>
                                 </Drawer>
-                                <Drawer position="left" maskType="dimmed" trigger={<Button>Dimmed</Button>}>
+                                <Drawer
+                                    position="left"
+                                    maskType="dimmed"
+                                    trigger={<DrawerTrigger>Dimmed</DrawerTrigger>}
+                                >
                                     <DrawerHeader>
                                         <h2 className="text-lg">Dimmed mask</h2>
                                     </DrawerHeader>
                                 </Drawer>
-                                <Drawer position="left" maskType="none" trigger={<Button>None</Button>}>
+                                <Drawer position="left" maskType="none" trigger={<DrawerTrigger>None</DrawerTrigger>}>
                                     <DrawerHeader>
                                         <h2 className="text-lg">None mask</h2>
                                     </DrawerHeader>
@@ -91,22 +99,22 @@ const DrawerPage = () => {
                                 buttons.
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer position="left" trigger={<Button>Left Drawer</Button>}>
+                                <Drawer position="left" trigger={<DrawerTrigger>Left Drawer</DrawerTrigger>}>
                                     <DrawerHeader>
                                         <h2 className="text-lg">Left Drawer</h2>
                                     </DrawerHeader>
                                 </Drawer>
-                                <Drawer position="top" trigger={<Button>Top Drawer</Button>}>
+                                <Drawer position="top" trigger={<DrawerTrigger>Top Drawer</DrawerTrigger>}>
                                     <DrawerHeader>
                                         <h2 className="text-lg">Top Drawer</h2>
                                     </DrawerHeader>
                                 </Drawer>
-                                <Drawer position="right" trigger={<Button>Right Drawer</Button>}>
+                                <Drawer position="right" trigger={<DrawerTrigger>Right Drawer</DrawerTrigger>}>
                                     <DrawerHeader>
                                         <h2 className="text-lg">Right Drawer</h2>
                                     </DrawerHeader>
                                 </Drawer>
-                                <Drawer position="bottom" trigger={<Button>Bottom Drawer</Button>}>
+                                <Drawer position="bottom" trigger={<DrawerTrigger>Bottom Drawer</DrawerTrigger>}>
                                     <DrawerHeader>
                                         <h2 className="text-lg">Bottom Drawer</h2>
                                     </DrawerHeader>
@@ -120,12 +128,12 @@ const DrawerPage = () => {
                                 Or change position using closeButonPosition
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Drawer position="right" trigger={<Button>Open</Button>}>
+                                <Drawer position="right" trigger={<DrawerTrigger>Open Drawer</DrawerTrigger>}>
                                     <DrawerHeader showCloseButton={false}>
                                         <h2 className="text-lg">Drawer without close button</h2>
                                     </DrawerHeader>
                                 </Drawer>
-                                <Drawer position="left" trigger={<Button>Open</Button>}>
+                                <Drawer position="left" trigger={<DrawerTrigger>Open Drawer</DrawerTrigger>}>
                                     <DrawerHeader closeButtonPosition={'left'}>
                                         <h2 className="text-lg">Close Button Left position</h2>
                                     </DrawerHeader>
@@ -143,7 +151,7 @@ const DrawerPage = () => {
                                     <Drawer
                                         target="drawer-inside-render"
                                         position="right"
-                                        trigger={<Button>Open</Button>}
+                                        trigger={<DrawerTrigger>Open Drawer</DrawerTrigger>}
                                     >
                                         <DrawerHeader>
                                             <h2 className="text-lg">Hello</h2>

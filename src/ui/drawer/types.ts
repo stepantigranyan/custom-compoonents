@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactElement } from 'react';
+import type { BtnProps } from '@/ui/button/types';
 
 export type DrawerPosition = 'top' | 'left' | 'right' | 'bottom';
 export type DrawerMask = 'blur' | 'dimmed' | 'none';
@@ -23,3 +24,5 @@ export interface DrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
 export interface DrawerBodyProps extends HTMLAttributes<HTMLDivElement> {}
 
 export interface DrawerCloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+export interface DrawerTriggerProps extends BtnProps {}

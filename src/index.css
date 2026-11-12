@@ -148,7 +148,7 @@
 
 @keyframes openLeftNtfc {
     from {
-        opacity: 0.5;
+        opacity: 0;
         transform: translateX(-100%);
     }
     to {
@@ -163,14 +163,14 @@
         transform: translateX(0);
     }
     to {
-        opacity: 0.5;
+        opacity: 0;
         transform: translateX(-100%);
     }
 }
 
 @keyframes openRightNtfc {
     from {
-        opacity: 0.5;
+        opacity: 0;
         transform: translateX(100%);
     }
     to {
@@ -185,7 +185,7 @@
         transform: translateX(0);
     }
     to {
-        opacity: 0.5;
+        opacity: 0;
         transform: translateX(100%);
     }
 }

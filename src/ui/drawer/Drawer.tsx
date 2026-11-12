@@ -1,15 +1,4 @@
-import {
-    type FC,
-    type ButtonHTMLAttributes,
-    type HTMLAttributes,
-    type ReactElement,
-    useEffect,
-    useRef,
-    useState,
-    isValidElement,
-    createContext,
-    cloneElement,
-} from 'react';
+import { type FC, useEffect, useRef, useState, createContext } from 'react';
 
 import type { DrawerProps } from '@/ui/drawer/types';
 
@@ -44,7 +33,6 @@ export const Drawer: FC<DrawerProps> = ({
     ...props
 }) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
-    // TODO
     const [open, setOpen] = useState<boolean>(false);
     const [visible, setVisible] = useState<boolean>(false);
 
@@ -77,23 +65,10 @@ export const Drawer: FC<DrawerProps> = ({
 
     useOutsideClick(wrapperRef, toggle);
 
-    // TODO: check cloning
-    const renderedTrigger =
-        trigger && isValidElement(trigger)
-            ? cloneElement(trigger as ReactElement<ButtonHTMLAttributes<HTMLButtonElement>>, {
-                  onClick: (e) => {
-                      const originalOnClick = (trigger.props as HTMLAttributes<HTMLButtonElement>).onClick;
-                      if (originalOnClick) {
-                          originalOnClick(e);
-                      }
-
-                      toggle();
-                  },
-              })
-            : null;
-
     return (
         <DrawerContext.Provider value={{ close: toggle }}>
+            {trigger}
+
             {visible && (
                 <Teleport target={target}>
                     <div
@@ -121,8 +96,6 @@ export const Drawer: FC<DrawerProps> = ({
                     </div>
                 </Teleport>
             )}
-
-            {renderedTrigger}
         </DrawerContext.Provider>
     );
 };

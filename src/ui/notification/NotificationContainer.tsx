@@ -1,11 +1,18 @@
 import { type FC, useState } from 'react';
-import type {NotificationContainerProps, NotificationPosition} from '@/ui/notification/types';
+import type { NotificationContainerProps, NotificationPosition } from '@/ui/notification/types';
 
 import { Teleport } from '@/ui/shared/Teleport';
 
 import { Notification } from '@/ui/notification/Notification';
 
-const NOTIFICATIONS_POSITION: NotificationPosition[] = ['topLeft', 'top', 'topRight', 'bottomLeft', 'bottom', 'bottomRight'];
+const NOTIFICATIONS_POSITION: NotificationPosition[] = [
+    'topLeft',
+    'top',
+    'topRight',
+    'bottomLeft',
+    'bottom',
+    'bottomRight',
+];
 
 export const NotificationContainer: FC<NotificationContainerProps> = ({ notifications, dismiss }) => {
     const [hovered, setHovered] = useState<Record<NotificationPosition, boolean>>({
@@ -18,31 +25,29 @@ export const NotificationContainer: FC<NotificationContainerProps> = ({ notifica
     });
 
     const handleMouseEnter = (position: NotificationPosition) => {
-        setHovered((prev) => ({ ...prev, [position]: true}));
+        setHovered((prev) => ({ ...prev, [position]: true }));
     };
 
     const handleMouseLeave = (position: NotificationPosition) => {
-        setHovered((prev) => ({ ...prev, [position]: false}));
+        setHovered((prev) => ({ ...prev, [position]: false }));
     };
 
     return (
         <>
-            {
-                NOTIFICATIONS_POSITION.map((p) => {
-                    return notifications[p].map((n) => (
-                        <Teleport target={p} key={n.id}>
-                            <Notification
-                                handleMouseEnter={handleMouseEnter}
-                                handleMouseLeave={handleMouseLeave}
-                                dismiss={dismiss}
-                                notification={n}
-                                position={p}
-                                hovered={hovered[p]}
-                            />
-                        </Teleport>
-                    ))
-                })
-            }
+            {NOTIFICATIONS_POSITION.map((p) => {
+                return notifications[p].map((n) => (
+                    <Teleport target={p} key={n.id}>
+                        <Notification
+                            handleMouseEnter={handleMouseEnter}
+                            handleMouseLeave={handleMouseLeave}
+                            dismiss={dismiss}
+                            notification={n}
+                            position={p}
+                            hovered={hovered[p]}
+                        />
+                    </Teleport>
+                ));
+            })}
         </>
     );
 };

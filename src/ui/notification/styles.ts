@@ -34,4 +34,4 @@ export const notificationVariant: Record<NotificationVariant, string> = {
 };
 
 export const notificationDefaultStyles =
-    'cursor-pointer relative p-2 w-100 min-h-30 flex flex-col justify-center gap-y-5 rounded-md shadow-lg z-50';
+    'cursor-pointer relative p-5 w-100 h-fit flex flex-col justify-center gap-y-auto rounded-md shadow-lg z-50';
