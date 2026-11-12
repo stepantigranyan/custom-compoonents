@@ -40,6 +40,7 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
             const notification: NotificationData = {
                 id,
                 status: 'entering',
+                isDisplayed: false,
                 data: {
                     message: data.message,
                     title: data.title,
@@ -49,6 +50,7 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
                     actions: options?.actions ?? [],
                     duration: options?.duration ?? 3000,
                     variant: options?.variant ?? 'default',
+                    autoClose: options?.autoClose ?? true,
                 },
             };
 
@@ -82,8 +84,7 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
     return (
         <NotificationContext.Provider value={{ notify, dismiss, remove }}>
             <NotificationContainer
-                position={positionRef.current}
-                notifications={notifications[positionRef.current]}
+                notifications={notifications}
                 dismiss={dismiss}
                 className={className}
                 {...props}

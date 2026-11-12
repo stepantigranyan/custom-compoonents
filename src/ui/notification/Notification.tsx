@@ -1,4 +1,4 @@
-import { type FC, useEffect, useRef, useState } from 'react';
+import {type FC, useLayoutEffect, useRef, useState} from 'react';
 import type { NotificationProps } from '@/ui/notification/types';
 
 import { notificationDefaultStyles, notificationAddingPosition, notificationVariant } from '@/ui/notification/styles';
@@ -18,7 +18,7 @@ export const Notification: FC<NotificationProps> = ({
 }) => {
     const { id, data, options, status } = notification;
     const { title, message } = data;
-    const { variant, duration, actions } = options;
+    const { variant, duration, actions, autoClose } = options;
 
     const [visible, setVisible] = useState<boolean>(true);
     const timerId = useRef<number | null>(null);
@@ -34,7 +34,16 @@ export const Notification: FC<NotificationProps> = ({
         dismiss(id, position);
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        if (status === 'exiting') {
+            setVisible(false);
+            return;
+        }
+
+        if (!autoClose) {
+            return;
+        }
+
         if (hovered) {
             clearTimeout(timerId.current);
             return;
@@ -65,8 +74,8 @@ export const Notification: FC<NotificationProps> = ({
         <>
             {visible && (
                 <div
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={() => handleMouseEnter(position)}
+                    onMouseLeave={() => handleMouseLeave(position)}
                     onAnimationEnd={handleAnimationEnd}
                     className={cn(notificationDefaultStyles, variantStyles, animationStyles)}
                 >

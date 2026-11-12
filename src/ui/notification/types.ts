@@ -6,8 +6,7 @@ export type NotificationVariant = 'default' | 'destructive' | 'success';
 export type NotificationStatus = 'entering' | 'exiting';
 
 export interface NotificationContainerProps extends HTMLAttributes<HTMLDivElement> {
-    notifications: NotificationData[];
-    position: NotificationPosition;
+    notifications: Record<NotificationPosition, NotificationData[]>;
     dismiss: (id: string, position: NotificationPosition) => void;
 }
 
@@ -15,8 +14,8 @@ export interface NotificationProps {
     position: NotificationPosition;
     notification: NotificationData;
     dismiss: (id: string, position: NotificationPosition) => void;
-    handleMouseEnter: () => void;
-    handleMouseLeave: () => void;
+    handleMouseEnter: (position: NotificationPosition) => void;
+    handleMouseLeave: (position: NotificationPosition) => void;
     hovered: boolean;
 }
 
@@ -32,12 +31,14 @@ export interface NotificationData {
     data: NotificationCreationData;
     options?: NotificationOptions;
     status: NotificationStatus;
+    isDisplayed: boolean;
 }
 
 export interface NotificationOptions {
     position?: NotificationPosition;
     variant?: NotificationVariant;
     duration?: number;
+    autoClose?: boolean;
     actions?: {
         title: string;
         onClick: () => void;

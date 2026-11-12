@@ -2,7 +2,7 @@ import type { FC, JSX } from 'react';
 import { createPortal } from 'react-dom';
 
 interface TeleportProps {
-    children: JSX.Element;
+    children: JSX.Element[] | JSX.Element;
     target: string;
 }
 

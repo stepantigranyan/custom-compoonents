@@ -101,6 +101,27 @@ const NotificationPage = () => {
                                 </Button>
                             </div>
                         </div>
+                        <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
+                            <p className="text-lg">Notification without auto close.</p>
+                            <div className="flex items-center gap-x-2">
+                                <Button
+                                    onClick={() => {
+                                        notify({
+                                            data: {
+                                                title: 'Default',
+                                                message: 'Default Notification',
+                                            },
+                                            options: {
+                                                position: 'topLeft',
+                                                autoClose: false,
+                                            },
+                                        });
+                                    }}
+                                >
+                                    Without Autoclose
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                     <div className="flex flex-col gap-y-5">
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
