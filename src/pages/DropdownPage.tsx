@@ -133,7 +133,10 @@ const DropdownPage = () => {
                                     <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                     <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
                                     <DropdownItem>
-                                        <Dropdown placement="rightTop" trigger={<span>Lorem ipsum dolor sit 4 {">"}</span>}>
+                                        <Dropdown
+                                            placement="rightTop"
+                                            trigger={<span>Lorem ipsum dolor sit 4 {'>'}</span>}
+                                        >
                                             <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                             <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         </Dropdown>

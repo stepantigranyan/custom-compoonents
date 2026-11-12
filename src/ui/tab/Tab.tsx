@@ -10,7 +10,14 @@ export const TabContext = createContext<{
     setActiveTab: Dispatch<SetStateAction<number>>;
 }>(null);
 
-export const Tab: FC<TabProps> = ({ data = [], position = 'top', defaultActiveTab = 0, className, children, ...props }) => {
+export const Tab: FC<TabProps> = ({
+    data = [],
+    position = 'top',
+    defaultActiveTab = 0,
+    className,
+    children,
+    ...props
+}) => {
     const [activeTab, setActiveTab] = useState<number>(defaultActiveTab);
 
     const positionStyle = tp[position];

@@ -8,18 +8,19 @@ export type NotificationStatus = 'entering' | 'exiting';
 export interface NotificationContainerProps extends HTMLAttributes<HTMLDivElement> {
     notifications: NotificationData[];
     position: NotificationPosition;
-    dismiss: (id: string) => void;
+    dismiss: (id: string, position: NotificationPosition) => void;
 }
 
 export interface NotificationProps {
     position: NotificationPosition;
     notification: NotificationData;
-    dismiss: (id: string) => void;
+    dismiss: (id: string, position: NotificationPosition) => void;
+    handleMouseEnter: () => void;
+    handleMouseLeave: () => void;
     hovered: boolean;
 }
 
-export interface NotificationProviderProps extends HTMLAttributes<HTMLDivElement> {
-}
+export interface NotificationProviderProps extends HTMLAttributes<HTMLDivElement> {}
 
 export interface NotificationCreationData {
     title: string;

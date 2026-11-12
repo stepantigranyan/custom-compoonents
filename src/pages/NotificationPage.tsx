@@ -108,7 +108,7 @@ const NotificationPage = () => {
                             <div className="flex items-center gap-x-2">
                                 <Button
                                     onClick={() => {
-                                        const id = notify({
+                                        const { id, position } = notify({
                                             data: {
                                                 title: 'Notification With Some Actions',
                                                 message:
@@ -121,7 +121,7 @@ const NotificationPage = () => {
                                                         color: 'red',
                                                         variant: 'filled',
                                                         onClick: () => {
-                                                            remove(id);
+                                                            remove(id, position);
                                                         },
                                                     },
                                                     {
@@ -129,7 +129,7 @@ const NotificationPage = () => {
                                                         color: 'blue',
                                                         variant: 'solid',
                                                         onClick: () => {
-                                                            dismiss(id);
+                                                            dismiss(id, position);
                                                         },
                                                     },
                                                 ],

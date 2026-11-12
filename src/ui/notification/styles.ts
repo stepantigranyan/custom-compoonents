@@ -42,6 +42,7 @@ export const notificationVariant: Record<NotificationVariant, string> = {
     success: 'bg-emerald-100 border border-solid border-emerald-300',
 };
 
-export const notificationContainerDefaultStyles = 'fixed max-h-screen overglow-x-visible overflow-y-auto w-110 flex flex-col gap-y-2 items-center scrollbar-none';
+export const notificationContainerDefaultStyles =
+    'fixed max-h-screen overglow-x-visible overflow-y-auto w-110 flex flex-col gap-y-2 items-center scrollbar-none';
 export const notificationDefaultStyles =
     'cursor-pointer relative p-2 w-100 min-h-25 flex flex-col justify-center rounded-md shadow-lg z-50';

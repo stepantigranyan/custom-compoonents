@@ -8,7 +8,14 @@ import { cn } from '@/utils/cn';
 import { X } from 'lucide-react';
 import { Button } from '@/ui/button/Button.tsx';
 
-export const Notification: FC<NotificationProps> = ({ notification, position, dismiss, hovered }) => {
+export const Notification: FC<NotificationProps> = ({
+    notification,
+    position,
+    dismiss,
+    hovered,
+    handleMouseEnter,
+    handleMouseLeave,
+}) => {
     const { id, data, options, status } = notification;
     const { title, message } = data;
     const { variant, duration, actions } = options;
@@ -24,7 +31,7 @@ export const Notification: FC<NotificationProps> = ({ notification, position, di
 
     const handleRemove = () => {
         clearTimeout(timerId.current);
-        dismiss(id);
+        dismiss(id, position);
     };
 
     useEffect(() => {
@@ -34,13 +41,12 @@ export const Notification: FC<NotificationProps> = ({ notification, position, di
         }
 
         timerId.current = setTimeout(() => {
-            dismiss(id);
+            dismiss(id, position);
         }, duration);
 
         return () => {
             clearTimeout(timerId.current);
         };
-
     }, [hovered]);
 
     let animationStyles: string;
@@ -59,6 +65,8 @@ export const Notification: FC<NotificationProps> = ({ notification, position, di
         <>
             {visible && (
                 <div
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                     onAnimationEnd={handleAnimationEnd}
                     className={cn(notificationDefaultStyles, variantStyles, animationStyles)}
                 >

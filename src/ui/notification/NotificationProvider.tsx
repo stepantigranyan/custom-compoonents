@@ -1,8 +1,9 @@
-import {createContext, type FC, useCallback, useState} from 'react';
+import {createContext, type FC, useCallback, useRef, useState} from 'react';
 import type {
     NotificationCreationData,
     NotificationData,
-    NotificationOptions, NotificationPosition,
+    NotificationOptions,
+    NotificationPosition,
     NotificationProviderProps,
 } from '@/ui/notification/types';
 
@@ -11,20 +12,28 @@ import { v4 as uuidv4 } from 'uuid';
 import { NotificationContainer } from '@/ui/notification/NotificationContainer';
 
 export const NotificationContext = createContext<{
-    notify: (obj: {data: NotificationCreationData, options?: NotificationOptions}) => string;
-    remove: (id: string) => void;
-    dismiss: (id: string) => void;
+    notify: (obj: { data: NotificationCreationData; options?: NotificationOptions }) => {
+        id: string;
+        position: NotificationPosition;
+    };
+    remove: (id: string, position: NotificationPosition) => void;
+    dismiss: (id: string, position: NotificationPosition) => void
 }>(null);
 
 export const NotificationProvider: FC<NotificationProviderProps> = ({ className, children, ...props }) => {
-    const [notifications, setNotifications] = useState<NotificationData[]>([]);
-    const [position, setPosition] = useState<NotificationPosition>('bottomRight');
+    const positionRef = useRef<NotificationPosition>('bottomRight');
+    const [notifications, setNotifications] = useState<Record<NotificationPosition, NotificationData[]>>({
+        topLeft: [],
+        top: [],
+        topRight: [],
+        bottomLeft: [],
+        bottom: [],
+        bottomRight: [],
+    });
 
     const notify = useCallback(
-        (obj: { data: NotificationCreationData, options?: NotificationOptions }) => {
+        (obj: { data: NotificationCreationData; options?: NotificationOptions }) => {
             const { data, options } = obj;
-
-            setPosition(options?.position ?? 'bottomRight');
 
             const id = uuidv4();
 
@@ -37,33 +46,44 @@ export const NotificationProvider: FC<NotificationProviderProps> = ({ className,
                 },
                 options: {
                     position: options?.position ?? 'bottomRight',
-                    actions: options.actions ?? [],
+                    actions: options?.actions ?? [],
                     duration: options?.duration ?? 3000,
                     variant: options?.variant ?? 'default',
                 },
             };
 
-            const newNotifications = [notification, ...notifications];
-            setNotifications(newNotifications);
+            positionRef.current = notification.options.position;
 
-            return id;
+            setNotifications((prev) => ({
+                ...prev,
+                [positionRef.current]: [notification, ...prev[positionRef.current]],
+            }));
+
+            return { id, position: notification.options.position };
         },
         [notifications]
     );
 
-    const dismiss = useCallback((id: string) => {
-        setNotifications((prev) => prev.map((i) => (i.id === id ? { ...i, status: 'exiting' } : i)));
+    const dismiss = useCallback((id: string, position: NotificationPosition) => {
+        setNotifications((prev) => ({
+            ...prev,
+            [position]: prev[position].map((i) => (i.id === id ? { ...i, status: 'exiting' } : i)),
+        }));
     }, []);
 
-    const remove = useCallback((id: string) => {
-        setNotifications((prev) => prev.filter((i) => i.id !== id));
+    const remove = useCallback((id: string, position: NotificationPosition) => {
+        setNotifications((prev) => ({
+            ...prev,
+            [position]: prev[position].filter((i) => i.id !== id),
+        }));
     }, []);
+
 
     return (
         <NotificationContext.Provider value={{ notify, dismiss, remove }}>
             <NotificationContainer
-                position={position}
-                notifications={notifications.filter((i) => i.options.position === position)}
+                position={positionRef.current}
+                notifications={notifications[positionRef.current]}
                 dismiss={dismiss}
                 className={className}
                 {...props}
