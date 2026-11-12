@@ -1,6 +1,7 @@
 import { CaseSensitive } from 'lucide-react';
 import { Dropdown } from '@/ui/dropdown/Dropdown';
 import { DropdownItem } from '@/ui/dropdown/DropdownItem';
+import { DropdownTrigger } from "@/ui/dropdown/DropdownTrigger";
 import { DropdownSeparator } from '@/ui/dropdown/DropdownSepator';
 import { Button } from '@/ui/button/Button';
 
@@ -27,7 +28,7 @@ const DropdownPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">The most basic dropdown menu.</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Dropdown placement="top" trigger={<Button>Hover</Button>}>
+                                <Dropdown placement="top" trigger={<DropdownTrigger><Button>Hover</Button></DropdownTrigger>}>
                                     <DropdownItem icon={<CaseSensitive size={15} />} iconPlacement="right">
                                         Option 1
                                     </DropdownItem>

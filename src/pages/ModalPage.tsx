@@ -2,8 +2,6 @@ import { Modal } from '@/ui/modal/Modal';
 import { ModalHeader } from '@/ui/modal/ModalHeader';
 import { ModalBody } from '@/ui/modal/ModalBody';
 import { ModalTrigger } from '@/ui/modal/ModalTrigger';
-import { ModalActions } from '@/ui/modal/ModalActions';
-import { Button } from '@/ui/button/Button';
 
 const SpinnerPage = () => {
     return (
@@ -109,36 +107,6 @@ const SpinnerPage = () => {
                                         </p>
                                     </ModalBody>
                                 </Modal>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-y-5">
-                            <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                                <p className="text-lg">You can also add action buttons.</p>
-                                <div className="flex">
-                                    <Modal trigger={<ModalTrigger>Open</ModalTrigger>}>
-                                        <ModalHeader>
-                                            <h2 className="text-lg font-bold">Helo!!!</h2>
-                                        </ModalHeader>
-                                        <ModalBody>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse et
-                                                explicabo fugiat id impedit inventore magni minus nemo officia officiis
-                                                quasi quos saepe, veritatis. Architecto beatae blanditiis doloribus
-                                                earum ex minus, necessitatibus omnis placeat quae tempora voluptate
-                                                voluptates? Consequuntur error facilis laborum nam sit? Amet dolorem
-                                                ducimus et nemo velit!
-                                            </p>
-                                        </ModalBody>
-                                        <ModalActions
-                                            submit={<Button size="sm">Submit</Button>}
-                                            cancel={
-                                                <Button size="sm" variant="filled" color="gray">
-                                                    Cancel
-                                                </Button>
-                                            }
-                                        />
-                                    </Modal>
-                                </div>
                             </div>
                         </div>
                     </div>

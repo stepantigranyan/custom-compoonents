@@ -33,6 +33,8 @@ export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {
     model?: DDMenuItemModel;
 }
 
+export interface DropDownTriggerProps extends HTMLAttributes<HTMLElement> {}
+
 export interface DropDownSeparatorProps {
     className?: string;
 }

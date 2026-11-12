@@ -34,4 +34,4 @@ export const dropdownItemDefaultStyles =
     'relative px-2 py-1 inline-flex gap-x-5 shrink-0 items-center px-2 py-1 rounded-md transition-all duration-200';
 export const dropdownDefaultStyles = 'flex flex-col gap-y-1 bg-white w-max shadow-md rounded-md p-1';
 export const dropdownMenuPositionDefaultStyles =
-    'absolute flex flex-col gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out';
+    'absolute flex flex-col left-1/2 top-1/2 gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out';
