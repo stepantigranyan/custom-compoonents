@@ -11,7 +11,7 @@ import TabPage from '@/pages/TabPage';
 import DropdownPage from '@/pages/DropdownPage';
 import FormPage from '@/pages/FormPage';
 import NotificationPage from '@/pages/NotificationPage';
-import { NotificationProvider } from '@/ui/notification/NotificationProvider.tsx';
+import { NotificationProvider } from '@/ui/notification/NotificationProvider';
 
 const router = createBrowserRouter([
     {

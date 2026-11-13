@@ -6,7 +6,7 @@ import { notificationDefaultStyles, notificationAddingPosition, notificationVari
 import { cn } from '@/utils/cn';
 
 import { X } from 'lucide-react';
-import { Button } from '@/ui/button/Button.tsx';
+import { Button } from '@/ui/button/Button';
 
 export const Notification: FC<NotificationProps> = ({
     notification,

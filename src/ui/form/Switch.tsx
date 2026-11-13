@@ -1,22 +1,27 @@
-import type { FC } from 'react';
+import { type FC, useContext, useEffect, useState } from 'react';
 import type { InputProps } from '@/ui/form/types';
-import { labelDefaultStyles, requiredDefaultStyles, switchDefaultStyles } from '@/ui/form/styles';
+import { switchDefaultStyles } from '@/ui/form/styles';
 
-import { v4 as uuidv4 } from 'uuid';
 import { cn } from '@/utils/cn';
+import { FormContext } from '@/ui/form/Form';
+import { FormItemContext } from '@/ui/form/FormItem';
 
-export const Switch: FC<InputProps> = ({ id, label, className, onChange, onInput, required, ...props }) => {
-    const generateId = id || uuidv4();
+export const Switch: FC<InputProps> = ({ className, onChange, onInput, required, defaultValue, ...rest }) => {
+    const dataRef = useContext(FormContext);
+    const { props } = useContext(FormItemContext);
+    const [value, setValue] = useState(Boolean(defaultValue));
+
+    useEffect(() => {
+        dataRef.current[props.name] = value;
+    }, [value]);
 
     return (
-        <div className={cn(labelDefaultStyles)}>
-            {label && (
-                <label htmlFor={generateId}>
-                    {required && <sup className={requiredDefaultStyles}>*</sup>}
-                    {label + ' :'}
-                </label>
-            )}
-            <input {...props} type="checkbox" id={generateId} className={cn(switchDefaultStyles, className)} />
-        </div>
+        <input
+            type="checkbox"
+            onChange={(e) => setValue(e.target.checked)}
+            className={cn(switchDefaultStyles, className)}
+            {...props}
+            {...rest}
+        />
     );
 };

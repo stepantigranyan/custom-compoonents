@@ -1,5 +1,5 @@
-export const labelDefaultStyles = 'flex items-center flex-wrap justify-between gap-2 cursor-pointer select-none';
-export const requiredDefaultStyles = 'text-red-500 mr-1';
+export const labelDefaultStyles = 'flex items-center flex-wrap justify-between gap-2 select-none';
+export const requiredDefaultStyles = 'text-red-500 mr-2';
 export const formDefaultStyles = 'p-3 border border-solid border-gray-300 rounded-md';
 export const inputDefaultStyles =
     'px-2 py-1 outline-none border border-gray-300 rounded-md focus:border-blue-500 transition-all duration-200 hover:border-blue-500 disabled:bg-slate-100 disabled:border-slate-300 disabled:cursor-not-allowed';

@@ -1,7 +1,7 @@
 import { CaseSensitive } from 'lucide-react';
 import { Dropdown } from '@/ui/dropdown/Dropdown';
 import { DropdownItem } from '@/ui/dropdown/DropdownItem';
-import { DropdownTrigger } from "@/ui/dropdown/DropdownTrigger";
+import { DropdownTrigger } from '@/ui/dropdown/DropdownTrigger';
 import { DropdownSeparator } from '@/ui/dropdown/DropdownSepator';
 import { Button } from '@/ui/button/Button';
 
@@ -28,7 +28,14 @@ const DropdownPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">The most basic dropdown menu.</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Dropdown placement="top" trigger={<DropdownTrigger><Button>Hover</Button></DropdownTrigger>}>
+                                <Dropdown
+                                    placement="bottom"
+                                    trigger={
+                                        <DropdownTrigger>
+                                            <Button>Hover</Button>
+                                        </DropdownTrigger>
+                                    }
+                                >
                                     <DropdownItem icon={<CaseSensitive size={15} />} iconPlacement="right">
                                         Option 1
                                     </DropdownItem>
@@ -40,62 +47,43 @@ const DropdownPage = () => {
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">Support 12 placements. Lorem ipsum dolor sit</p>
+                            <p className="text-lg">Support 12 placements</p>
                             <div className="flex flex-col gap-y-10">
                                 <div className="flex items-center justify-around gap-x-2">
-                                    <Dropdown placement="topLeft" trigger={<Button>Hover</Button>}>
+                                    <Dropdown
+                                        placement="topLeft"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
                                         <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
                                     </Dropdown>
-                                    <Dropdown placement="top" trigger={<Button>Hover</Button>}>
+                                    <Dropdown
+                                        placement="top"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
                                         <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
                                     </Dropdown>
-                                    <Dropdown placement="topRight" trigger={<Button>Hover</Button>}>
-                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
-                                    </Dropdown>
-                                </div>
-                                <div className="flex items-center justify-around gap-x-2">
-                                    <Dropdown placement="leftTop" trigger={<Button>Hover</Button>}>
-                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
-                                    </Dropdown>
-                                    <Dropdown placement="left" trigger={<Button>Hover</Button>}>
-                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
-                                    </Dropdown>
-                                    <Dropdown placement="leftBottom" trigger={<Button>Hover</Button>}>
-                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
-                                    </Dropdown>
-                                </div>
-                                <div className="flex items-center justify-around gap-x-2">
-                                    <Dropdown placement="rightTop" trigger={<Button>Hover</Button>}>
-                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
-                                    </Dropdown>
-                                    <Dropdown placement="right" trigger={<Button>Hover</Button>}>
-                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
-                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
-                                    </Dropdown>
-                                    <Dropdown placement="rightBottom" trigger={<Button>Hover</Button>}>
+                                    <Dropdown
+                                        placement="topRight"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
                                         <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
@@ -103,19 +91,122 @@ const DropdownPage = () => {
                                     </Dropdown>
                                 </div>
                                 <div className="flex items-center justify-around gap-x-2">
-                                    <Dropdown placement="bottomLeft" trigger={<Button>Hover</Button>}>
+                                    <Dropdown
+                                        placement="leftTop"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
                                         <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
                                     </Dropdown>
-                                    <Dropdown placement="bottom" trigger={<Button>Hover</Button>}>
+                                    <Dropdown
+                                        placement="left"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
                                         <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
                                     </Dropdown>
-                                    <Dropdown placement="bottomRight" trigger={<Button>Hover</Button>}>
+                                    <Dropdown
+                                        placement="leftBottom"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
+                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
+                                    </Dropdown>
+                                </div>
+                                <div className="flex items-center justify-around gap-x-2">
+                                    <Dropdown
+                                        placement="rightTop"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
+                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
+                                    </Dropdown>
+                                    <Dropdown
+                                        placement="right"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
+                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
+                                    </Dropdown>
+                                    <Dropdown
+                                        placement="rightBottom"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
+                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
+                                    </Dropdown>
+                                </div>
+                                <div className="flex items-center justify-around gap-x-2">
+                                    <Dropdown
+                                        placement="bottomLeft"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
+                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
+                                    </Dropdown>
+                                    <Dropdown
+                                        placement="bottom"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
+                                        <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
+                                        <DropdownItem>Lorem ipsum dolor sit 4</DropdownItem>
+                                    </Dropdown>
+                                    <Dropdown
+                                        placement="bottomRight"
+                                        trigger={
+                                            <DropdownTrigger>
+                                                <Button>Hover</Button>
+                                            </DropdownTrigger>
+                                        }
+                                    >
                                         <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                         <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
@@ -129,14 +220,25 @@ const DropdownPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">Cascading Menu</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Dropdown placement="topLeft" trigger={<Button>Hover</Button>}>
+                                <Dropdown
+                                    placement="topLeft"
+                                    trigger={
+                                        <DropdownTrigger>
+                                            <Button>Hover</Button>
+                                        </DropdownTrigger>
+                                    }
+                                >
                                     <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                     <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
                                     <DropdownItem>Lorem ipsum dolor sit 3</DropdownItem>
                                     <DropdownItem>
                                         <Dropdown
-                                            placement="rightTop"
-                                            trigger={<span>Lorem ipsum dolor sit 4 {'>'}</span>}
+                                            placement="rightBottom"
+                                            trigger={
+                                                <DropdownTrigger>
+                                                    <span>Lorem ipsum dolor sit 4 {'>'}</span>
+                                                </DropdownTrigger>
+                                            }
                                         >
                                             <DropdownItem>Lorem ipsum dolor sit 1</DropdownItem>
                                             <DropdownItem>Lorem ipsum dolor sit 2</DropdownItem>
@@ -148,7 +250,14 @@ const DropdownPage = () => {
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
                             <p className="text-lg">There are 4 basic modes for menu items</p>
                             <div className="flex items-center flex-wrap gap-3">
-                                <Dropdown placement="topLeft" trigger={<Button>Hover</Button>}>
+                                <Dropdown
+                                    placement="topLeft"
+                                    trigger={
+                                        <DropdownTrigger>
+                                            <Button>Hover</Button>
+                                        </DropdownTrigger>
+                                    }
+                                >
                                     <DropdownItem model="default">Lorem ipsum dolor sit 1</DropdownItem>
                                     <DropdownItem model="danger">Lorem ipsum dolor sit 2</DropdownItem>
                                     <DropdownItem model="warning">Lorem ipsum dolor sit 3</DropdownItem>

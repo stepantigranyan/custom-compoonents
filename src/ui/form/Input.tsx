@@ -1,22 +1,26 @@
-import type { FC } from 'react';
+import { type FC, useContext, useEffect, useState } from 'react';
 import type { InputProps } from '@/ui/form/types';
-import { inputDefaultStyles, labelDefaultStyles, requiredDefaultStyles } from '@/ui/form/styles';
+import { inputDefaultStyles } from '@/ui/form/styles';
 
-import { v4 as uuidv4 } from 'uuid';
 import { cn } from '@/utils/cn';
+import { FormContext } from '@/ui/form/Form';
+import { FormItemContext } from '@/ui/form/FormItem';
 
-export const Input: FC<InputProps> = ({ id, label, className, required, ...props }) => {
-    const generateId = id || uuidv4();
+export const Input: FC<InputProps> = ({ className, ...rest }) => {
+    const dataRef = useContext(FormContext);
+    const { props } = useContext(FormItemContext);
+    const [value, setValue] = useState<string | number | readonly string[] | undefined>(props.defaultValue);
+
+    useEffect(() => {
+        dataRef.current[props.name] = value;
+    }, [value]);
 
     return (
-        <div className={cn(labelDefaultStyles)}>
-            {label && (
-                <label htmlFor={generateId}>
-                    {required && <sup className={requiredDefaultStyles}>*</sup>}
-                    {label + ' :'}
-                </label>
-            )}
-            <input id={generateId} className={cn(inputDefaultStyles, className)} required={required} {...props} />
-        </div>
+        <input
+            className={cn(inputDefaultStyles, className)}
+            onChange={(e) => setValue(e.target.value)}
+            {...props}
+            {...rest}
+        />
     );
 };

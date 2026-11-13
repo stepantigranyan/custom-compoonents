@@ -1,8 +1,8 @@
 import { type FC, useContext } from 'react';
 import type { CollapseItemBodyProps } from '@/ui/collapse/types.ts';
 import { collapseItemBodyDefaultStyles, collapseSize } from '@/ui/collapse/styles.ts';
-import { CollapseContext } from '@/ui/collapse/Collapse.tsx';
-import { CollapseItemContext } from '@/ui/collapse/CollapseItem.tsx';
+import { CollapseContext } from '@/ui/collapse/Collapse';
+import { CollapseItemContext } from '@/ui/collapse/CollapseItem';
 
 import { cn } from '@/utils/cn';
 

@@ -1,4 +1,4 @@
-import { type FC, useRef, useState } from 'react';
+import { type FC, useContext, useEffect, useState } from 'react';
 import type { InputProps } from '@/ui/form/types.ts';
 import {
     labelDefaultStyles,
@@ -13,44 +13,36 @@ import { Plus, Trash2 } from 'lucide-react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { cn } from '@/utils/cn';
+import { FormContext } from '@/ui/form/Form';
+import { FormItemContext } from '@/ui/form/FormItem';
 
-export const Upload: FC<InputProps> = ({
-    id,
-    className,
-    onChange,
-    onInput,
-    required,
-    children,
-    disabled,
-    ...props
-}) => {
-    const [selectedFiles, setSelectedFiles] = useState([]);
-    const fileInputRef = useRef(null);
+export const Upload: FC<InputProps> = ({ className, onChange, onInput, required, children, disabled, ...rest }) => {
+    const dataRef = useContext(FormContext);
+    const { props } = useContext(FormItemContext);
+    const [value, setValue] = useState([]);
+
+    useEffect(() => {
+        dataRef.current[props.name] = value;
+    }, [value]);
 
     const handleFileChange = (e) => {
         const files = e.target.files;
         if (!files || files.length === 0) return;
 
         const filesArray = Array.from(files);
-        setSelectedFiles((prev) => [...filesArray, ...prev]);
-
-        if (fileInputRef.current) {
-            fileInputRef.current.value = '';
-        }
+        setValue((prev) => [...filesArray, ...prev]);
     };
 
     const handleDeleteFile = (name: string) => {
         if (disabled) return;
-        setSelectedFiles((prev) => prev.filter((x) => x.name !== name));
+        setValue((prev) => prev.filter((x) => x.name !== name));
     };
-
-    const generateId = id || uuidv4();
 
     return (
         <div className="flex gap-x-2">
             <div className={cn(labelDefaultStyles)}>
                 <label
-                    htmlFor={generateId}
+                    htmlFor={props.id}
                     className={cn(uploadDefaultStyles, disabled && uploadDisabledStyles, className)}
                 >
                     <div className="flex flex-col items-center justify-center gap-y-2">
@@ -58,18 +50,10 @@ export const Upload: FC<InputProps> = ({
                         <h3>Upload</h3>
                     </div>
                 </label>
-                <input
-                    disabled={disabled}
-                    onChange={handleFileChange}
-                    type="file"
-                    ref={fileInputRef}
-                    id={generateId}
-                    className="hidden"
-                    {...props}
-                />
+                <input onChange={handleFileChange} type="file" className="hidden" {...props} {...rest} />
             </div>
             <div className="no-scrollbar flex flex-col gap-y-1 overflow-y-auto h-40">
-                {selectedFiles.map((file) => (
+                {value.map((file) => (
                     <div
                         key={uuidv4()}
                         onClick={() => handleDeleteFile(file.name)}

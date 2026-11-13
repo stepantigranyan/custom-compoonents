@@ -1,6 +1,5 @@
-import { useState } from 'react';
-
-import { Form, FormItem } from '@/ui/form/form.tsx';
+import { Form } from '@/ui/form/Form';
+import { FormItem } from '@/ui/form/FormItem';
 import { Input } from '../ui/form/Input';
 import { Radio } from '../ui/form/Radio';
 import { CheckBox } from '../ui/form/CheckBox';
@@ -11,12 +10,6 @@ import { Slider } from '../ui/form/Slider';
 import { Button } from '@/ui/button/Button';
 
 const FormPage = () => {
-    const [disabledAll, setDisabledAll] = useState<boolean>(false);
-
-    const handleToggleDisabledAll = () => {
-        setDisabledAll((prev) => !prev);
-    };
-
     return (
         <div className="flex flex-col gap-y-20">
             <div className="flex flex-col gap-y-5">
@@ -36,46 +29,11 @@ const FormPage = () => {
                             </p>
                             <div className="flex items-center flex-wrap gap-3">
                                 <Form className="flex flex-col gap-y-5">
-                                    <FormItem>
-                                        <h2 className="text-lg font-bold">Contact</h2>
-                                        <div className="flex flex-col gap-y-3">
-                                            <Input
-                                                className="grid grid-cols-2"
-                                                label="Name"
-                                                placeholder="Joe"
-                                                type="text"
-                                                required={true}
-                                            />
-                                            <Input
-                                                className="grid grid-cols-2"
-                                                label="Email"
-                                                placeholder="example@gmail.com"
-                                                type="email"
-                                                required={true}
-                                            />
-                                            <Input
-                                                className="grid grid-cols-2"
-                                                label="Password"
-                                                type="password"
-                                                required={true}
-                                            />
-                                        </div>
+                                    <FormItem name="username" label="Username" required={true}>
+                                        <Input />
                                     </FormItem>
-                                    <FormItem className="flex flex-col gap-y-3">
-                                        <h2 className="text-lg font-bold">Skills</h2>
-                                        <div>
-                                            <Radio name="skills" label="Html" />
-                                            <Radio name="skills" label="Javascript" />
-                                            <Radio name="skills" label="CSS" />
-                                        </div>
-                                    </FormItem>
-                                    <FormItem>
-                                        <h2 className="text-lg font-bold">Privacy & Terms</h2>
-                                        <CheckBox
-                                            className="grid grid-cols-2"
-                                            label="Legal & Privacy"
-                                            required={true}
-                                        />
+                                    <FormItem name="password" label="Password" type="password" required={true}>
+                                        <Input />
                                     </FormItem>
                                     <FormItem>
                                         <Button size="sm" type="submit">
@@ -86,57 +44,48 @@ const FormPage = () => {
                             </div>
                         </div>
                         <div className="p-5 flex flex-col gap-y-5 border border-solid border-gray-300 rounded-lg">
-                            <p className="text-lg">Set component to disabled, only works for antd components.</p>
+                            <p className="text-lg">All components</p>
                             <div className="flex items-center flex-wrap gap-3">
                                 <Form className="flex flex-col gap-y-5 border-none w-100">
-                                    <FormItem className="mb-20">
-                                        <CheckBox label="Disable all" onChange={handleToggleDisabledAll} />
+                                    <FormItem name="email" label="Email" type="email" required={true}>
+                                        <Input />
                                     </FormItem>
-                                    <FormItem>
-                                        <div className="flex flex-col gap-y-3">
-                                            <Input
-                                                disabled={disabledAll}
-                                                className="grid grid-cols-2"
-                                                label="Name"
-                                                placeholder="Joe"
-                                                type="text"
-                                            />
-                                            <Input
-                                                disabled={disabledAll}
-                                                className="grid grid-cols-2"
-                                                label="Email"
-                                                placeholder="example@gmail.com"
-                                                type="email"
-                                            />
-                                            <Input
-                                                disabled={disabledAll}
-                                                className="grid grid-cols-2"
-                                                label="Number"
-                                                type="number"
-                                            />
-                                            <Input
-                                                disabled={disabledAll}
-                                                className="grid grid-cols-2"
-                                                label="Password"
-                                                type="password"
-                                            />
-                                        </div>
+                                    <FormItem name="number" label="Number" type="number" required={true}>
+                                        <Input />
                                     </FormItem>
-                                    <FormItem className="flex flex-col gap-y-3">
-                                        <div className="flex items-center gap-x-3">
-                                            <Radio disabled={disabledAll} name="example" />
-                                            <Radio disabled={disabledAll} name="example" />
-                                        </div>
-                                        <CheckBox disabled={disabledAll} />
-                                        <Switch disabled={disabledAll} />
-                                        <Upload disabled={disabledAll} multiple />
+                                    <FormItem name="password" label="Password" type="password" required={true}>
+                                        <Input />
                                     </FormItem>
-                                    <FormItem>
-                                        <Slider disabled={disabledAll} />
+                                    <div className="border border-solid border-gray-400 rounded-lg p-2">
+                                        <FormItem name="agree" label="Agree" required={true}>
+                                            <CheckBox />
+                                        </FormItem>
+                                        <p className="text-gray-400 text-sm mt-4">
+                                            All information submitted here is strictly confidential and protected. We
+                                            never share your personal details with third parties without your consent.
+                                            Read our full [Privacy Policy] for more details.
+                                        </p>
+                                    </div>
+                                    <FormItem name="fruit">
+                                        <Radio value="apple" />
+                                        <Radio value="orange" />
+                                        <Radio value="banana" />
                                     </FormItem>
-                                    <FormItem>
-                                        <Button disabled={disabledAll} size="sm" type="submit">
+                                    <FormItem name="theme">
+                                        <Switch />
+                                    </FormItem>
+                                    <FormItem name="files">
+                                        <Upload />
+                                    </FormItem>
+                                    <FormItem name="slider">
+                                        <Slider />
+                                    </FormItem>
+                                    <FormItem name="slider" className="flex gap-x-2">
+                                        <Button size="sm" type="submit">
                                             Submit
+                                        </Button>
+                                        <Button type="reset" color="pink" size="sm">
+                                            Reset
                                         </Button>
                                     </FormItem>
                                 </Form>

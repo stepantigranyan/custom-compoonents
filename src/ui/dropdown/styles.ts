@@ -8,30 +8,22 @@ export const ddItemModel: Record<DDMenuItemModel, string> = {
 };
 
 export const ddMenuPlacement: Record<DDMenuPlacement, string> = {
-    topLeft:
-        'pb-2 bottom-full left-0 translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    top: 'pb-2 bottom-full left-1/2 -translate-x-1/2 translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    topRight:
-        'pb-2 bottom-full right-0 translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    bottomLeft:
-        'pt-2 top-full left-0 -translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    bottom: 'pt-2 top-full left-1/2 -translate-x-1/2 -translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    bottomRight:
-        'pt-2 top-full right-0 -translate-y-2 [.group:hover_>_&]:translate-y-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    leftTop:
-        'pr-2 right-full bottom-0 translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    left: 'pr-2 right-full top-1/2 -translate-y-1/2 translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    leftBottom:
-        'pr-2 right-full top-0 translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    rightTop:
-        'pl-2 left-full bottom-0 -translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    right: 'pl-2 left-full top-1/2 -translate-y-1/2 -translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
-    rightBottom:
-        'pl-2 left-full top-0 -translate-x-2 [.group:hover_>_&]:translate-x-0 [.group:hover_>_&]:opacity-100 [.group:hover_>_&]:visible',
+    topLeft: 'pb-2 bottom-full left-0 translate-y-2',
+    top: 'pb-2 bottom-full left-1/2 -translate-x-1/2 translate-y-2',
+    topRight: 'pb-2 bottom-full right-0 translate-y-2',
+    bottomLeft: 'pt-2 top-full left-0 -translate-y-2',
+    bottom: 'pt-2 top-full left-1/2 -translate-x-1/2 -translate-y-2',
+    bottomRight: 'pt-2 top-full right-0 -translate-y-2',
+    leftTop: 'pr-2 right-full bottom-0 translate-x-2',
+    left: 'pr-2 right-full top-1/2 -translate-y-1/2 translate-x-2',
+    leftBottom: 'pr-2 right-full top-0 translate-x-2',
+    rightTop: 'pl-2 left-full bottom-0 -translate-x-2',
+    right: 'pl-2 left-full top-1/2 -translate-y-1/2 -translate-x-2',
+    rightBottom: 'pl-2 left-full top-0 -translate-x-2',
 };
 
 export const dropdownItemDefaultStyles =
     'relative px-2 py-1 inline-flex gap-x-5 shrink-0 items-center px-2 py-1 rounded-md transition-all duration-200';
 export const dropdownDefaultStyles = 'flex flex-col gap-y-1 bg-white w-max shadow-md rounded-md p-1';
 export const dropdownMenuPositionDefaultStyles =
-    'absolute flex flex-col left-1/2 top-1/2 gap-y-1 opacity-0 invisible bg-transparent z-100 transition-all duration-200 ease-out';
+    'absolute flex flex-col gap-y-1 bg-transparent z-100 transition-all duration-200 ease-out';

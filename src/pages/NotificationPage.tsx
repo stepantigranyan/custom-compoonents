@@ -1,4 +1,4 @@
-import { Button } from '@/ui/button/Button.tsx';
+import { Button } from '@/ui/button/Button';
 import { useNotification } from '@/hooks/useNotification.ts';
 
 const NotificationPage = () => {
